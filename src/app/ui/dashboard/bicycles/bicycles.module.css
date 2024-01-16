@@ -1,0 +1,58 @@
+.container{
+    background-color: var(--bgExtraSoft);
+    padding: 1vw;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addBicycleButton{
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    margin: 5px 0px;
+    border: none;
+    color: var(--bgSoft);
+    text-decoration: none;
+}
+
+.addBicycleButton:hover{
+    background-color: var(--green);
+    color: white;
+}
+
+.table td{
+    padding: 10px;
+}
+
+.table{
+    
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+
+.viewButton{
+    border-radius: 10px;
+    border: 3px solid var(--green);
+    gap: 10px;
+    background-color: var(--bgExtraSoft);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+    
+.viewButton:hover{
+        background-color: var(--green);
+        color: white;
+}

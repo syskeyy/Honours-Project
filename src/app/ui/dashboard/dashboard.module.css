@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    
+}
+
+.menu{
+    flex:1;
+    background-color: var(--bgSoft);
+    padding: 40px;
+    min-height: 100vh;
+
+}
+
+.content{
+    flex:5;
+    filter: drop-shadow(0px 0px 5px #00000017);
+
+}
+
+.wrapper{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.main{
+    flex: 4;
+    border-radius: 10px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}

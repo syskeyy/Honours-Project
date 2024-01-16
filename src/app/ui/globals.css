@@ -1,0 +1,30 @@
+/* #223440 23455b 591b12*/
+
+:root{
+  --bg: #0e161c;
+  --bgSoft: #162129;
+  --bgExtraSoft: #101b23;
+  --text: #ffffff;
+  --textSoft: rgb(255, 255, 255, 0.7);
+  --green: rgb(2, 161, 65);
+  --greenTwo:#30bb88;
+  --red:#fe303e;
+  --toolbar-field-focus-border-color: transparent !important; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins';
+}
+
+body{
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a{
+  color: inherit;
+}

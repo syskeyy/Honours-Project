@@ -1,0 +1,24 @@
+.container{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+}
+
+.button{
+    border-radius: 10px;
+    cursor: pointer;
+    right: 0;
+    align-items: right;
+    padding: 10px;
+    margin: 2px 0px;
+    border: none;
+    color: var(--bgSoft);
+}
+
+.button:disabled{
+    cursor: not-allowed;
+}

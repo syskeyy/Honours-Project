@@ -1,0 +1,54 @@
+.container {
+    background-color: var(--bgExtraSoft);
+    padding: 1vw;
+    display: flex;
+    flex-direction: column; 
+    border-radius: 10px;
+    gap: 20px;
+    cursor: pointer;
+    width: 100%;
+    align-items: center; 
+}
+.container:hover{
+    background-color: var(--bgSoft);
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.title{
+    color: var(--text);
+    margin-left: 5px;
+}
+
+.gauge{
+    max-width: 12rem;
+    color: aliceblue;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+}
+
+.cardButton{
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    margin: 5px 0px;
+    border: none;
+    width: 50%;
+    color: var(--bgSoft);
+    text-decoration: none;
+}
+
+.cardButton:hover{
+    background-color: var(--green);
+    color: white;
+}

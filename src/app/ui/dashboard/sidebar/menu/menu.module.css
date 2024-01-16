@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 20px;
+    margin: 5px 0px;
+    border-radius: 20px;
+}
+
+.container:hover, .active{
+    background-color: rgb(2, 161, 65);
+}

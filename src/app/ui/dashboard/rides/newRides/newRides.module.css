@@ -1,0 +1,49 @@
+.container{
+    background-color: var(--bgExtraSoft);
+    padding: 1vw;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.form{
+    gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form input, .form textarea, .form select{
+    border: none;
+    background-color: var(--bgSoft);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form input, .form select, .form label{
+    width: 100%;
+}
+.form textarea{
+    width: 100%;
+}
+
+.submitButton{
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0px;
+    border: none;
+    color: var(--bgSoft);
+    width: 50%;
+    text-decoration: none;
+}
+
+    
+.submitButton:hover{
+        background-color: var(--green);
+        color: white;
+}

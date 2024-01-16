@@ -1,0 +1,64 @@
+.content{
+    padding: 0px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: var(--bgExtraSoft);
+    filter: none;
+
+}
+
+.ProfileIconImage{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+}
+
+.title{
+    font-weight: bold;
+    color: var(--text);
+    text-transform: capitalize;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input{
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+    width: 50%; 
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.searchInput{
+    background-color: var(--bgSoft);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.notification{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.pointsTitle{
+    align-items: center;
+    text-align: center;
+}

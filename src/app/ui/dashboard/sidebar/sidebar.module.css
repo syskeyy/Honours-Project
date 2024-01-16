@@ -1,0 +1,58 @@
+
+.container{
+    top: 2rem;
+    max-width: 100%;
+}
+
+.logo{
+    display:flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.logoIcon{
+    width: 50px;  
+}
+
+.logoDetail{
+    display: flex;
+    flex-direction: column;
+}
+
+.list{
+    list-style: none;
+    padding: 0;
+
+}
+.items{
+    color: var(--textSoft);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin: 10px 0px;
+    
+}
+
+.logoTitle{
+    font-weight: bold;
+    color: var(--text);
+}
+
+.signout{
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 20px;
+    align-items: center;
+    background: none;
+    display: flex;
+    padding: 20px;
+    margin: 5px 0px;
+    border: none;
+    width: 100%;
+    color: white;
+    margin-top: 43vh;
+}
+
+.signout:hover{
+    background-color: #fe303e;
+}

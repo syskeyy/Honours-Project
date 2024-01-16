@@ -1,0 +1,19 @@
+.container{
+    height: 15vw;
+    background-color: var(--bgExtraSoft);
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.title{
+    margin-bottom: 20px;
+  font-weight: 200;
+  color: white;
+  display: flex;
+}
+
+.container:hover{
+  background-color: var(--bgSoft);
+}
