@@ -1,6 +1,5 @@
 "use client";
 import styles from "./card.module.css"
-import { LuCog } from "react-icons/lu";
 import { MdOutlineTireRepair } from "react-icons/md";
 import { BsSignStopFill } from "react-icons/bs";
 import { IoBicycleOutline } from "react-icons/io5";
@@ -8,8 +7,8 @@ import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
 
 
-const Card = () => {
-    const [value, setValue] = useState(2); 
+const Tyres = () => {
+    const [value, setValue] = useState(20); 
 
     const resetValue = () => {
         setValue(100); // Reset value to 0 when called
@@ -28,8 +27,8 @@ const Card = () => {
     return (
     <div className={styles.container}>
         <div className={styles.titleContainer}>
-            <LuCog size={20}/>
-            <span className={styles.title}>Drivetrain</span>
+            <MdOutlineTireRepair  size={20}/>
+            <span className={styles.title}>Tyres</span>
         </div>
         <div className={styles.texts}>
             <div className={styles.gauge}>
@@ -42,4 +41,4 @@ const Card = () => {
     )
 }
 
-export default Card
+export default Tyres

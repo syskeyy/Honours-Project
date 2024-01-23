@@ -2,6 +2,7 @@
 .container{
     top: 2rem;
     max-width: 100%;
+    
 }
 
 .logo{
@@ -31,6 +32,7 @@
     font-size: 0.8rem;
     margin: 10px 0px;
     
+
 }
 
 .logoTitle{

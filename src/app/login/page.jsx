@@ -12,7 +12,7 @@ const Login = () => {
           <input type="username" className="Username" />
           <label className={styles.label} htmlFor="password">Password</label>
           <input type="password" className="Password" />
-          <button className={styles.loginButton}>Submit</button> 
+          <Button className={styles.loginButton} onClick={() => signIn()}>Sign In</Button>
           <span className={styles.signupTitle}>Don't have an account? <span className={styles.signupBold}>Sign up here</span></span>
         </form>
       </div>

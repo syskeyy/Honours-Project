@@ -26,11 +26,12 @@ const Navbar = () => {
             <div className={styles.menu}>
                 <div className={styles.notification}>
                     <MdStarOutline size={30}/>
-                    <span className={styles.pointsTitle}>321</span>
+                    <span className={styles.pointsTitle}>Level 1</span>
                     <MdOutlineNotificationsNone size={30}/>
                 </div>
                 <div className={styles.ProfileIcon}>
-                    <img className={styles.ProfileIconImage} src="/landscape-placeholder.svg" alt="profile icon"/>                
+                    <img className={styles.ProfileIconImage} src="/landscape-placeholder.svg" alt="profile icon"/>   
+                    <span className={styles.profileTitle}>Profile</span>
                 </div>
             </div>
          </div>

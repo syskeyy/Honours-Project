@@ -15,7 +15,7 @@ export const fetchBicycles = async (q) => {
 
         }
         catch(err){
-            console.log(err);
+            console.log(err); 
             throw new Error('Error fetching bicycles');
 
         }
@@ -25,6 +25,20 @@ export const fetchBicycle = async (id) => {
         try{
             connectToMongo();
             const bicycle = await Bicycles.findById(id);
+            return bicycle;
+        }
+        catch(err){
+            console.log(err);
+            throw new Error('Error fetching bicycles');
+
+        }
+    }
+    
+export const fetchAllBicycle = async () => {
+
+        try{
+            connectToMongo();
+            const bicycle = await Bicycles.find();
             return bicycle;
         }
         catch(err){

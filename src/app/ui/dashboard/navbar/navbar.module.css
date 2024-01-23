@@ -7,16 +7,16 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
     background-color: var(--bgExtraSoft);
     filter: none;
+    height: 100px;
 
 }
 
 .ProfileIconImage{
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
     border-radius: 2rem;
 }
 
@@ -61,4 +61,11 @@
 .pointsTitle{
     align-items: center;
     text-align: center;
+}
+
+.ProfileIcon{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
 }

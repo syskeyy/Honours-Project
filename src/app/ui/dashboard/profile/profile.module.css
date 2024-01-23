@@ -1,0 +1,51 @@
+.container{
+    background-color: var(--bgExtraSoft);
+    border-radius: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    
+}
+
+.form{
+    gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1vw;
+    padding-bottom: 50px;
+
+
+}
+
+.form input, .form textarea, .form select{
+    border: none;
+    background-color: var(--bgSoft);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form input, .form select, .form label{
+    width: 100%;
+}
+.form textarea{
+    width: 100%;
+}
+
+.top{
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    background-color: #213233;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+}
+
+.ProfileIconImage{
+    width: 200px;
+    padding: 30px;
+    border-radius: 1000px;
+}
