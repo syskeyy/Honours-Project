@@ -1,6 +1,8 @@
+"use client"
 import styles from "./sidebar.module.css"
 import Menu from "./menu/menu"
 import Image from 'next/image'
+import { useSession, signOut } from 'next-auth/react'
 
 import {
     MdPedalBike,
@@ -68,7 +70,7 @@ const Sidebar = () => {
                     </li>
                 ))}
             </ul>
-            <button className={styles.signout}>
+            <button className={styles.signout} onClick={() => signOut('google')}>
                 <MdOutlineLogin/>
                         <h4>Sign out</h4>
             </button>

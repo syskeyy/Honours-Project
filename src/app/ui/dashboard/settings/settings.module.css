@@ -3,14 +3,14 @@
     padding: 1vw;
     border-radius: 10px;
     margin: 20px;
+
 }
 
 .form{
     gap: 0.4rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
 }
 
 .form input, .form textarea, .form select{
@@ -24,6 +24,7 @@
 
 .form input, .form select, .form label{
     width: 100%;
+    
 }
 .form textarea{
     width: 100%;
@@ -40,6 +41,9 @@
     color: var(--bgSoft);
     width: 50%;
     text-decoration: none;
+    margin: auto;
+    margin-top: 20px;
+    
 }
 
     
@@ -48,11 +52,7 @@
         color: white;
 }
 
-.checkboxContainer {
-    display: inline;
-    text-align: left;
+.checkBox {
 
-  }
-  
-  .checkboxLabel {
+   color: black;
   }

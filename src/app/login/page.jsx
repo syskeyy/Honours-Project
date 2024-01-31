@@ -1,6 +1,7 @@
+"use client"
 import styles from "../ui/dashboard/login/login.module.css"
 import Image from 'next/image'
-
+import { useSession, signIn } from 'next-auth/react'
 
 const Login = () => {
   return (
@@ -12,8 +13,10 @@ const Login = () => {
           <input type="username" className="Username" />
           <label className={styles.label} htmlFor="password">Password</label>
           <input type="password" className="Password" />
-          <Button className={styles.loginButton} onClick={() => signIn()}>Sign In</Button>
-          <span className={styles.signupTitle}>Don't have an account? <span className={styles.signupBold}>Sign up here</span></span>
+          <button className={styles.googleSignInButton} onClick={() => signIn('google')}>
+            <img src="/Google.svg" width="40" height="40" alt="Google Sign-In" />
+            Sign in with Google
+          </button>
         </form>
       </div>
       <div className={styles.poster}>

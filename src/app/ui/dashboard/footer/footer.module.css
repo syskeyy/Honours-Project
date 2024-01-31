@@ -1,8 +1,0 @@
-.container{
-    flex-direction: column; 
-    width: 100%;
-    padding: 0;
-    background-color: var(--bgSoft);
-    border-radius: 10px;
-}
-

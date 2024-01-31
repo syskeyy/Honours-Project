@@ -1,0 +1,24 @@
+.searchBicycles{
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.bicycleLabel{
+    height: 100%;
+    padding-right: 10px;
+}
+
+.input{
+    border: none;
+    background-color: var(--bgExtraSoft);
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 30%; 
+    gap: 10px;
+}

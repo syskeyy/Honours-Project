@@ -1,16 +1,17 @@
-import { it } from 'node:test';
 import { Bicycles } from './models.js';
 import { Rides } from './models.js';
 import { connectToMongo } from './utils';
-
+import { getServerSession } from 'next-auth/next'
 
 
 export const fetchBicycles = async (q) => {
-
+    const session = await getServerSession()
+    console.log(session.user)
+    const userEmail = session?.user?.email
         const regex = new RegExp(q, "i");
         try{
             connectToMongo();
-            const bicycles = await Bicycles.find({bicyclename: {$regex:regex}});
+            const bicycles = await Bicycles.find({ bicyclename: { $regex: regex }, userEmail: userEmail });
             return bicycles;
 
         }
@@ -35,10 +36,13 @@ export const fetchBicycle = async (id) => {
     }
     
 export const fetchAllBicycle = async () => {
+    const session = await getServerSession()
+    console.log(session.user)
+    const userEmail = session?.user?.email
 
         try{
             connectToMongo();
-            const bicycle = await Bicycles.find();
+            const bicycle = await Bicycles.find({userEmail: userEmail});
             return bicycle;
         }
         catch(err){
@@ -49,14 +53,17 @@ export const fetchAllBicycle = async () => {
     }
 
 export const fetchRides = async (q, page) => {
+    const session = await getServerSession()
+    console.log(session.user)
+    const userEmail = session?.user?.email
 
     const regex = new RegExp(q, "i");
 
     const ITEM_PER_PAGE = 10;
     try{
         connectToMongo();
-        const count = await Rides.find({ridename: {$regex:regex}}).count();
-        const rides = await Rides.find({ridename: {$regex:regex}}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page - 1));
+        const count = await Rides.find({ridename: {$regex:regex}, userEmail: userEmail}).count();
+        const rides = await Rides.find({ridename: {$regex:regex}, userEmail: userEmail}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page - 1));
         return {rides, count};
 
     }

@@ -14,7 +14,7 @@ const NewRide = async() => {
           <label className={styles.label} htmlFor="bicycle">Bicycle</label>
           <select className={styles.input} id="bicycle" name="bicycle">
             {bicycle.map((bicycle) => (
-              <option key={bicycle.id}>
+              <option name="ridebicycle" id="ridebicycle" key={bicycle.id}>
                 {bicycle.bicyclename}
               </option>
             ))}        
@@ -25,6 +25,8 @@ const NewRide = async() => {
           <input className={styles.input} id="ridedate" name="ridedate" type="date"/>
           <label className={styles.label} htmlFor="time">Ride Time</label>
           <input className={styles.input} id="ridetime" name="ridetime" type="time"/>
+          <label className={styles.label} htmlFor="speed">Ride Speed</label>
+          <input className={styles.input} id="ridespeed" name="ridespeed" type="number"/>
           <label className={styles.label} htmlFor="description">Description</label>
           <textarea className={styles.input} id="ridedescription" name="ridedescription" rows="6"> </textarea>
           <button className={styles.submitButton}>Submit</button>

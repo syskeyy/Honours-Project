@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const BicycleSchema = new mongoose.Schema({
+    userEmail: {
+      type: String,
+      required: true,
+    },
     bicyclename: {
       type: String,
       required: true,
@@ -28,6 +32,10 @@ const BicycleSchema = new mongoose.Schema({
   },{timestamps: true});
 
 const RidesSchema = new mongoose.Schema({
+    userEmail: {
+      type: String,
+      required: true,
+    },
     ridename: {
       type: String,
       required: true,
@@ -40,6 +48,14 @@ const RidesSchema = new mongoose.Schema({
     },
     ridedate: {
       type: Date,
+      required: true,
+    },
+    ridebicycle: {
+      type: String,
+      required: false,
+    },
+    ridespeed: {
+      type: Number,
       required: true,
     },
     ridetime: {
@@ -59,5 +75,26 @@ const RidesSchema = new mongoose.Schema({
     }
   },{timestamps: true});
 
+
+const UserSchema = new mongoose.Schema(
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+        unique: true,
+      },
+      image: {
+        type: String,
+        required: false,
+      }
+    },
+    { timestamps: true },
+  );
+
 export const Bicycles = mongoose.models.Bicycles || mongoose.model("Bicycles", BicycleSchema);
 export const Rides = mongoose.models.Rides || mongoose.model("Rides", RidesSchema);
+export const User =  mongoose.models.User || mongoose.model("User", UserSchema);

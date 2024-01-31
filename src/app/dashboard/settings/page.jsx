@@ -1,15 +1,13 @@
+"use client"
 import styles from "../../ui/dashboard/settings/settings.module.css"
+import React from "react";
 
 const Settings = () => {
 
     return (
       <div className={styles.container}>
         <form className={styles.form}>
-           <div className={styles.checkboxContainer}>
-            <input type="checkbox" id="notifications" name="notifications" />
-            <label className={styles.checkboxLabel} htmlFor="notifications">Don't Receive Email Notifications</label>
-          </div>
-          <label className={styles.label} htmlFor="notificationThreshold">Threshold of notifications</label>
+          <label className={styles.checkboxLabel} htmlFor="notifications">Don't Receive Email Notifications</label>
           <select id="notificationThreshold" name="notificationThreshold">
             <option value="10">10%</option>
             <option value="20">20%</option>

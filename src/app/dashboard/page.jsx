@@ -5,15 +5,18 @@ import Bike from '../ui/dashboard/card/bike'
 
 import Chart from '../ui/dashboard/chart/chart'
 import Rides from '../ui/dashboard/rides/rides'
-import Footer from '../ui/dashboard/footer/footer'
 import styles from '../ui/dashboard/dashboard.module.css'  
+import { fetchAllBicycle } from '../lib/data.js'
+import DashboardSearch from '../ui/dashboard/dashboardSearch/dashboardSearch'
 
+const Dashboard = async() => {
 
+  const bicycle = await fetchAllBicycle();
 
-const Dashboard = () => {
     return (
       <div className={styles.wrapper}>
         <div className={styles.main}>
+          <DashboardSearch/>
           <div className={styles.cards}>
             <Drivetrain/>
             <Brakes/>
@@ -22,7 +25,6 @@ const Dashboard = () => {
           </div>
           <Chart/>
           <Rides/>
-          <Footer/>
         </div>
       </div>
     )

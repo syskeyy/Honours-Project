@@ -9,7 +9,10 @@
     "lint": "next lint --ext .ts,.tsx"
   },
   "dependencies": {
+    "@ramonak/react-progress-bar": "^5.2.0",
     "axios": "^1.6.5",
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
     "mongoose": "^8.0.4",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
@@ -19,7 +22,9 @@
     "react-gauge-component": "^1.1.30",
     "react-gauges": "^0.0.3",
     "react-icons": "^4.11.0",
+    "react-switch": "^7.0.0",
     "recharts": "^2.9.0",
+    "sass": "^1.70.0",
     "swr": "^2.2.4",
     "use-debounce": "^9.0.4"
   },

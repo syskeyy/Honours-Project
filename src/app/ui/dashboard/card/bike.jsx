@@ -12,7 +12,7 @@ const Bike = () => {
     const [value, setValue] = useState(80); 
 
     const resetValue = () => {
-        setValue(100); // Reset value to 0 when called
+        setValue(100); 
     };
 
     const getLabelColor = (value) => {
@@ -37,7 +37,10 @@ const Bike = () => {
             </div>    
             <span className={styles.remaining}>Rides Remaining: </span>
         </div>
-        <button className={styles.cardButton} onClick={resetValue}>Reset Service</button>
+        <button className={styles.cardButton} onClick={() => { 
+        if (value <100) resetValue();
+          console.log("Value reset")
+        }}>Reset Service</button>
     </div>
     )
 }

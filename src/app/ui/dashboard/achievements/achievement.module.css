@@ -1,0 +1,118 @@
+.container{
+    background-color: var(--bgExtraSoft);
+    border-radius: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    
+}
+
+
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+    padding: 40px;
+    background-color: #213233;
+    border-radius: 10px;
+
+}
+.experience{
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.levelContainer{
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+
+}
+  
+  .progressBar {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    background-color: var(--bg);
+    border-radius: 20px;
+    height: 40px;
+    
+  }
+
+  
+  .progressValue {
+    background-color: var(--green);
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+  }
+
+  .bottom{
+  }
+
+.containerLevel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.circleLevel{
+
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--text);
+    z-index: 2;
+}
+
+.circleLevelDetail{
+  font-size: 1.5rem;
+  height: 100%;
+  color: black;
+  text-align: center; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+.barLevel{
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 20px;
+    height: 40px;
+    width: 100%;
+    background-color: var(--bg);
+    margin-left: -20px;
+    
+}
+.barLevelTextLeft{
+  height: 100%;
+  text-align: center; 
+  display: flex; 
+  align-items: center; 
+  margin-left: 50px;
+}
+
+.barLevelTextRight{
+  height: 100%;
+  text-align: right; 
+  display: flex; 
+  align-items: center;
+  margin-right: 30px;
+}
+
+.levelLabelPlusOne{
+  height: 100%;
+  text-align: right; 
+  align-items: center;
+  margin-right: 30px;
+}

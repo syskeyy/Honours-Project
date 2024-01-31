@@ -1,26 +1,32 @@
-import styles from "../../../ui/dashboard/rides/viewRides/viewRides.module.css"
+import { fetchRide } from "../../../lib/data";
 
-const ViewRidePage = () => {
+import styles from "../../../ui/dashboard/rides/viewRides/viewRides.module.css"
+import { deleteRide } from "../../../lib/actions.js";
+
+const ViewRidePage = async({params}) => {
+
+  const { id } = params;
+
+  const ride = await fetchRide(id);
+  console.log(ride)
     return (
         <div className={styles.container}>
-        <form className={styles.form}>
+          <form action={deleteRide} className={styles.form}>
+          <input type="hidden" name="id" value={ride.id} />
           <label className={styles.label} htmlFor="name">Ride Name</label>
-          <input className={styles.input} id="name" name="name" type="text"/>
+          <input className={styles.input} id="name" name="name" value={ride.ridename} type="text"/>
           <label className={styles.label} htmlFor="bicycle">Bicycle</label>
-          <select className={styles.input} id="bicycle" name="bicycle">
-            <option value="gravel">Vitus Substance</option>
-          </select>
+          <input className={styles.input} id="name" name="name" value={ride.ridebicycle} type="text"/>
           <label className={styles.label} htmlFor="distance">Ride Distance</label>
-          <input className={styles.input} id="distance" name="distance" type="number"/>
+          <input className={styles.input} id="name" name="name" value={ride.ridedistance} type="text"/>
           <label className={styles.label} htmlFor="speed">Ride Speed</label>
-          <input className={styles.input} id="speed" name="speed" type="number"/>
+          <input className={styles.input} id="name" name="name" value={ride.ridespeed} type="text"/>
           <label className={styles.label} htmlFor="date">Date</label>
-          <input className={styles.input} id="date" name="date" type="date"/>
+          <input className={styles.input} id="name" name="name" value={ride.ridedate} type="text"/>
           <label className={styles.label} htmlFor="time">Time</label>
-          <input className={styles.input} id="time" name="time" type="time"/>
+          <input className={styles.input} id="name" name="name" value={ride.ridetime} type="text"/>
           <label className={styles.label} htmlFor="description">Description</label>
-          <textarea className={styles.input} id="description" rows="6"> </textarea>
-          <button className={styles.submitButton}>Submit</button>
+          <textarea className={styles.input} id="description" rows="6" value={ride.ridedescription}> </textarea>
           <button className={styles.deleteButton}>Delete</button>
         </form>
       </div>
