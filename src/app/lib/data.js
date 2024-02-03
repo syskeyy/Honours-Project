@@ -6,7 +6,6 @@ import { getServerSession } from 'next-auth/next'
 
 export const fetchBicycles = async (q) => {
     const session = await getServerSession()
-    console.log(session.user)
     const userEmail = session?.user?.email
         const regex = new RegExp(q, "i");
         try{
@@ -37,7 +36,6 @@ export const fetchBicycle = async (id) => {
     
 export const fetchAllBicycle = async () => {
     const session = await getServerSession()
-    console.log(session.user)
     const userEmail = session?.user?.email
 
         try{
@@ -54,7 +52,6 @@ export const fetchAllBicycle = async () => {
 
 export const fetchRides = async (q, page) => {
     const session = await getServerSession()
-    console.log(session.user)
     const userEmail = session?.user?.email
 
     const regex = new RegExp(q, "i");
@@ -70,6 +67,26 @@ export const fetchRides = async (q, page) => {
     catch(err){
         console.log(err);
         throw new Error('Error fetching rides');
+
+    }
+}
+
+export const fetchMostRecentRideDrivetrainHealth = async (q) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+    
+    const regex = new RegExp(q, "i");
+
+    try{
+        connectToMongo();
+        const ride = await Rides.findOne({ridename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('drivetrainhealth');
+        console.log(ride)
+        return ride.drivetrainhealth;
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching ride');
 
     }
 }

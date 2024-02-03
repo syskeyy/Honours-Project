@@ -14,7 +14,6 @@ export const addBicycles = async (formData) => {
     const bicycleyear = formData.get('bicycleyear');
     const bicyclemileage = formData.get('bicyclemileage');
     const bicycledescription = formData.get('bicycledescription');
-
         try{
             connectToMongo();
             const newBicycle = new Bicycles({
@@ -23,7 +22,8 @@ export const addBicycles = async (formData) => {
                 bicycletype,
                 bicycleyear,
                 bicyclemileage,
-                bicycledescription
+                bicycledescription,
+                drivetrainhealth
             });
         
         await newBicycle.save();
@@ -64,9 +64,11 @@ export const addRides = async (formData) => {
     const ridebicycle = formData.get('bicycle');
     const ridetime = formData.get('ridetime');
     const ridedescription = formData.get('ridedescription');
-
         try{
             connectToMongo();
+            const rides = (await Rides.find({ ridebicycle }).sort({ createdAt: -1 }).limit(1));
+            const previousRide = rides[0];
+            const drivetrainhealth = previousRide ? previousRide.drivetrainhealth - 20 : 100;
             const newRides = new Rides({
                 userEmail: session.user.email,
                 ridename,
@@ -75,7 +77,8 @@ export const addRides = async (formData) => {
                 ridetime,
                 ridebicycle,
                 ridedescription,
-                ridespeed
+                ridespeed,
+                drivetrainhealth
             });
         
         await newRides.save();

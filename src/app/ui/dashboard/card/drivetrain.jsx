@@ -6,13 +6,15 @@ import { BsSignStopFill } from "react-icons/bs";
 import { IoBicycleOutline } from "react-icons/io5";
 import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
+import {Tooltip} from "./Tooltip";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 
-
-const Drivetrain = () => {
-    const [value, setValue] = useState(30); 
+const Drivetrain = ({ drivetrainhealth, onReset }) => {
+    const [value, setValue] = useState(drivetrainhealth); 
 
     const resetValue = () => {
-        setValue(100); // Reset value to 0 when called
+        setValue(100); // Reset value to 100 when called
+        onReset(); 
     };
 
     const getLabelColor = (value) => {
@@ -25,11 +27,20 @@ const Drivetrain = () => {
         }
     };
 
+    // rest of your component
+
     return (
     <div className={styles.container}>
         <div className={styles.titleContainer}>
             <LuCog size={20}/>
             <span className={styles.title}>Drivetrain</span>
+        </div>
+        <div className={styles.informationContainer}>
+            <Tooltip text="Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. A regular schedule of maintenance (monthly, weekly or more often depending on your type of riding) is important. If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. If you touch the chain with your finger and it comes away black and greasy, that’s a sure sign that a clean and lube are needed. Another sign is hearing excessive amounts of chain noise when you’re pedaling.">
+                <div className="tooltip-icon">
+                    <IoMdInformationCircleOutline size={20} />
+                </div>
+            </Tooltip>
         </div>
         <div className={styles.texts}>
             <div className={styles.gauge}>

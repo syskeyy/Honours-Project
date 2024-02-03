@@ -52,3 +52,18 @@
     background-color: var(--green);
     color: white;
 }
+
+
+.tooltip-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: aqua;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.tooltip{
+    text-align: center;
+}

@@ -2,7 +2,6 @@
 import Link from "next/link";
 import styles from "../../ui/dashboard/profile/profile.module.css";
 import { getServerSession } from "next-auth/next";
-
 export default async function Profile(){
   const session = await getServerSession();
 

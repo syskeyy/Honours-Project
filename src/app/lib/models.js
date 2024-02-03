@@ -72,6 +72,12 @@ const RidesSchema = new mongoose.Schema({
       type: String,
       required: false,
       maxlength: 2000
+    },
+    drivetrainhealth: {
+      type: Number,
+      required: false,
+      min: 0,
+      max: 100
     }
   },{timestamps: true});
 
