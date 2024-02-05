@@ -8,14 +8,15 @@ import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
 import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { UpdateDrivetrainHealth } from '../../../lib/actions';
 
-const Drivetrain = ({ drivetrainhealth, onReset }) => {
+const Drivetrain = ({ drivetrainhealth }) => {
     const [value, setValue] = useState(drivetrainhealth); 
 
-    const resetValue = () => {
-        setValue(100); // Reset value to 100 when called
-        onReset(); 
-    };
+    const onReset = async () => {
+        const health = await UpdateDrivetrainHealth();
+        setValue(health);
+      };
 
     const getLabelColor = (value) => {
         if (value < 25) {
@@ -26,8 +27,6 @@ const Drivetrain = ({ drivetrainhealth, onReset }) => {
             return "#02a141"; 
         }
     };
-
-    // rest of your component
 
     return (
     <div className={styles.container}>
@@ -48,7 +47,7 @@ const Drivetrain = ({ drivetrainhealth, onReset }) => {
             </div>    
             <span className={styles.remaining}>Rides Remaining: </span>
         </div>
-        <button className={styles.cardButton} onClick={resetValue}>Reset Service</button>
+        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
     </div>
     )
 }

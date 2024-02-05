@@ -1,4 +1,3 @@
-"use client"
 import styles from "../../ui/dashboard/settings/settings.module.css"
 import React from "react";
 

@@ -8,13 +8,15 @@ import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
 import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { UpdateBrakeHealth } from "../../../lib/actions";
 
-const Brakes = () => {
-    const [value, setValue] = useState(60); 
+const Brakes = ({ brakehealth }) => {
+    const [value, setValue] = useState(brakehealth); 
 
-    const resetValue = () => {
-        setValue(100); // Reset value to 0 when called
-    };
+    const onReset = async () => {
+        const health = await UpdateBrakeHealth();
+        setValue(health);
+      };
 
     const getLabelColor = (value) => {
         if (value < 25) {
@@ -25,6 +27,7 @@ const Brakes = () => {
             return "#02a141"; 
         }
     };
+
 
     return (
     <div className={styles.container}>
@@ -45,7 +48,7 @@ const Brakes = () => {
             </div>    
             <span className={styles.remaining}>Rides Remaining: </span>
         </div>
-        <button className={styles.cardButton} onClick={resetValue}>Reset Service</button>
+        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
     </div>
     )
 }

@@ -12,13 +12,13 @@ const NewRide = async() => {
           <label className={styles.label} htmlFor="name">Ride Name</label>
           <input className={styles.input} id="ridename" name="ridename" type="text"/>
           <label className={styles.label} htmlFor="bicycle">Bicycle</label>
-          <select className={styles.input} id="bicycle" name="bicycle">
-            {bicycle.map((bicycle) => (
-              <option name="ridebicycle" id="ridebicycle" key={bicycle.id}>
-                {bicycle.bicyclename}
-              </option>
-            ))}        
-           </select>
+          <select className={styles.input} id="ridebicycle" name="ridebicycle">
+          {bicycle.map((bicycle) => (
+            <option value={bicycle.bicyclename} key={bicycle.id}>
+              {bicycle.bicyclename}
+            </option>
+          ))}        
+        </select>
           <label className={styles.label} htmlFor="distance">Ride Distance</label>
           <input className={styles.input} id="ridedistance" name="ridedistance" type="number"/>
           <label className={styles.label} htmlFor="date">Date</label>

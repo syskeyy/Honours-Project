@@ -41,6 +41,7 @@ export const fetchAllBicycle = async () => {
         try{
             connectToMongo();
             const bicycle = await Bicycles.find({userEmail: userEmail});
+            console.log(bicycle)
             return bicycle;
         }
         catch(err){
@@ -71,26 +72,6 @@ export const fetchRides = async (q, page) => {
     }
 }
 
-export const fetchMostRecentRideDrivetrainHealth = async (q) => {
-    const session = await getServerSession()
-    const userEmail = session?.user?.email
-    
-    const regex = new RegExp(q, "i");
-
-    try{
-        connectToMongo();
-        const ride = await Rides.findOne({ridename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('drivetrainhealth');
-        console.log(ride)
-        return ride.drivetrainhealth;
-
-    }
-    catch(err){
-        console.log(err);
-        throw new Error('Error fetching ride');
-
-    }
-}
-
 export const fetchRide = async (id) => {
 
     try{
@@ -104,3 +85,99 @@ export const fetchRide = async (id) => {
 
     }
 }
+
+export const fetchDrivetrainHealth = async (q) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+    const regex = new RegExp(q, "i");
+
+    try{
+        connectToMongo();
+        const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('drivetrainhealth');
+
+        if (!bike) {
+            return 0;
+        }
+        
+        return bike.drivetrainhealth;
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching ride');
+
+    }
+}
+
+
+export const fetchBrakeHealth = async (q) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+    const regex = new RegExp(q, "i");
+
+    try{
+        connectToMongo();
+        const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('brakehealth');
+
+        if (!bike) {
+            return 0;
+        }
+        
+        return bike.brakehealth;
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching ride');
+
+    }
+}
+
+
+export const fetchTyreHealth = async (q) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+    const regex = new RegExp(q, "i");
+
+    try{
+        connectToMongo();
+        const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('tyrehealth');
+
+        if (!bike) {
+            return 0;
+        }
+        
+        return bike.tyrehealth;
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching ride');
+
+    }
+}
+
+
+export const fetchBikeHealth = async (q) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+    const regex = new RegExp(q, "i");
+
+    try{
+        connectToMongo();
+        const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('bikehealth');
+
+        if (!bike) {
+            return 0;
+        }
+        
+        return bike.bikehealth;
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching ride');
+
+    }
+}
+

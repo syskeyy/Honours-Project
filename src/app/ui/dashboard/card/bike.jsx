@@ -8,13 +8,15 @@ import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
 import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { UpdateBikeHealth } from "../../../lib/actions";
 
-const Bike = () => {
-    const [value, setValue] = useState(80); 
+const Bike = ({ bikehealth }) => {
+    const [value, setValue] = useState(bikehealth); 
 
-    const resetValue = () => {
-        setValue(100); 
-    };
+    const onReset = async () => {
+        const health = await UpdateBikeHealth();
+        setValue(health);
+      };
 
     const getLabelColor = (value) => {
         if (value < 25) {
@@ -25,6 +27,7 @@ const Bike = () => {
             return "#02a141"; 
         }
     };
+
 
     return (
     <div className={styles.container}>
@@ -44,11 +47,8 @@ const Bike = () => {
                 <SimpleGauge value={value}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
             </div>    
             <span className={styles.remaining}>Rides Remaining: </span>
-        </div>
-        <button className={styles.cardButton} onClick={() => { 
-        if (value <100) resetValue();
-          console.log("Value reset")
-        }}>Reset Service</button>
+            </div>
+        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
     </div>
     )
 }

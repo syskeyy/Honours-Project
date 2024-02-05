@@ -28,6 +28,30 @@ const BicycleSchema = new mongoose.Schema({
       type: String,
       required: false,
       maxlength: 2000
+    },
+    drivetrainhealth: {
+      type: Number,
+      required: false,
+      min: 0,
+      max: 100
+    },
+    brakehealth: {
+      type: Number,
+      required: false,
+      min: 0,
+      max: 100
+    },
+    tyrehealth: {
+      type: Number,
+      required: false,
+      min: 0,
+      max: 100
+    },
+    bikehealth: {
+      type: Number,
+      required: false,
+      min: 0,
+      max: 100
     }
   },{timestamps: true});
 
@@ -72,12 +96,6 @@ const RidesSchema = new mongoose.Schema({
       type: String,
       required: false,
       maxlength: 2000
-    },
-    drivetrainhealth: {
-      type: Number,
-      required: false,
-      min: 0,
-      max: 100
     }
   },{timestamps: true});
 
@@ -96,7 +114,13 @@ const UserSchema = new mongoose.Schema(
       image: {
         type: String,
         required: false,
-      }
+      },
+      xp: {
+        type: Number,
+        required: false,
+        default: 0,
+        maxlength: 10000
+      },
     },
     { timestamps: true },
   );
