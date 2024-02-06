@@ -111,7 +111,7 @@ export const fetchDrivetrainHealth = async (q) => {
 }
 
 
-export const fetchBrakeHealth = async (q) => {
+export const fetchBrakeHealth = async (q, bike) => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
     const regex = new RegExp(q, "i");

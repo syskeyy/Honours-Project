@@ -67,3 +67,36 @@
 .tooltip{
     text-align: center;
 }
+
+.noBikeContainer {
+    background-color: var(--bgExtraSoft);
+    justify-content: center;
+    padding: 1vw;
+    height: 350px;
+    display: flex;
+    flex-direction: column; 
+    border-radius: 10px;
+    gap: 20px;
+    cursor: pointer;
+    width: 100%;
+    align-items: center; 
+}
+
+
+.cardButtonNoBike{
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+    padding: 15px;
+    margin: 5px 0px;
+    border: none;
+    width: 100%;
+    color: var(--bgSoft);
+    text-decoration: none;
+}
+
+.cardButtonNoBike:hover{
+    background-color: var(--green);
+    color: white;
+}

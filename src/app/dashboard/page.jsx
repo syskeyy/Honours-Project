@@ -5,16 +5,20 @@ import Bike from '../ui/dashboard/card/bike'
 import Chart from '../ui/dashboard/chart/chart'
 import Rides from '../ui/dashboard/rides/rides'
 import styles from '../ui/dashboard/dashboard.module.css'  
-import { fetchComponents } from '../lib/data.js'
+import { fetchAllBicycle } from '../lib/data.js'
 import { fetchDrivetrainHealth, fetchBikeHealth, fetchTyreHealth, fetchBrakeHealth} from '../lib/data.js';
-
+import NoBike from '../ui/dashboard/card/noBike/nobike' 
 import DashboardSearch from '../ui/dashboard/dashboardSearch/dashboardSearch'
 
 const Dashboard = async(onReset) => {
-   const drivetrainhealth = await fetchDrivetrainHealth();
-   const bikehealth = await fetchBikeHealth();
-   const tyrehealth = await fetchTyreHealth();
-   const brakehealth = await fetchBrakeHealth();
+  const bicycles = await fetchAllBicycle();
+  const bike = bicycles[0];
+
+  if (bike) {
+    const drivetrainhealth = await fetchDrivetrainHealth();
+    const bikehealth = await fetchBikeHealth();
+    const tyrehealth = await fetchTyreHealth();
+    const brakehealth = await fetchBrakeHealth();
 
     return (
       <div className={styles.wrapper}>
@@ -30,6 +34,17 @@ const Dashboard = async(onReset) => {
         </div>
       </div>
     )
-  }
+    } else {
+      return(
+        <div className={styles.wrapper}>
+        <div className={styles.main}>
+          <div className={styles.cards}>
+            <NoBike />
+          </div>
+        </div>
+      </div>
+      )
+    }
+}
   
 export default Dashboard

@@ -1,6 +1,7 @@
 "use client"
 import styles from "./sidebar.module.css"
 import Menu from "./menu/menu"
+import Link from 'next/link';
 import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 
@@ -53,7 +54,9 @@ const Sidebar = () => {
     return (
         <div className={styles.container}>
         <div className={styles.logo}>
-            <img className={styles.logoIcon} src="/logo.png" alt="profile icon"/>                
+            <Link href="/dashboard">
+                 <img className={styles.logoIcon} src="/logo.png" alt="profile icon"/>
+            </Link>  
             <div className={styles.logoDetail}>
                 <span className={styles.logoTitle}>ChainSafe</span>
                 <span className={styles.logoSubtitle}>Bicycle Maintence Tracker</span>
