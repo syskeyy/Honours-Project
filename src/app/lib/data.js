@@ -1,5 +1,6 @@
 import { Bicycles } from './models.js';
 import { Rides } from './models.js';
+import { User } from './models.js';
 import { connectToMongo } from './utils';
 import { getServerSession } from 'next-auth/next'
 
@@ -181,3 +182,17 @@ export const fetchBikeHealth = async (q) => {
     }
 }
 
+export const fetchExperiance = async () => {
+    const session = await getServerSession()
+    const email = session?.user?.email
+
+    try{
+        connectToMongo();
+        const user = await User.findOne({ email: email });
+        return user.xp;
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error updating experience');
+    }
+}

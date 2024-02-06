@@ -125,6 +125,45 @@ const UserSchema = new mongoose.Schema(
     { timestamps: true },
   );
 
+const UserSettings = new mongoose.Schema(
+    {
+      userEmail: {
+        type: String,
+        required: true,
+      },
+      drivetrainLifespan: {
+        type: Number,
+        required: false,
+        default: 20,
+        min: 1,
+        max: 100
+      },
+      brakeLifespan: {
+        type: Number,
+        required: false,
+        default: 20,
+        min: 1,
+        max: 100
+      },
+      tyreLifespan: {
+        type: Number,
+        required: false,
+        default: 20,
+        min: 1,
+        max: 100
+      },
+      bikeLifespan: {
+        type: Number,
+        required: false,
+        default: 10,
+        min: 1,
+        max: 100
+      },
+    },
+    { timestamps: true },
+  );
+
 export const Bicycles = mongoose.models.Bicycles || mongoose.model("Bicycles", BicycleSchema);
 export const Rides = mongoose.models.Rides || mongoose.model("Rides", RidesSchema);
 export const User =  mongoose.models.User || mongoose.model("User", UserSchema);
+export const Settings =  mongoose.models.Settings || mongoose.model("Settings", UserSettings);

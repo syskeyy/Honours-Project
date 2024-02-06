@@ -8,14 +8,22 @@ import React, { useState } from 'react';
 import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateTyreHealth } from "../../../lib/actions";
+import {updateExperiance} from "../../../lib/actions";
 
 const Tyres = ({ tyrehealth }) => {
     const [value, setValue] = useState(tyrehealth); 
 
     const onReset = async () => {
-        const health = await UpdateTyreHealth();
-        setValue(health);
-      };
+        try {
+            const health = await UpdateTyreHealth();
+            if (value < 100) {
+               await updateExperiance();
+            }
+            setValue(health);
+        } catch (err) {
+            console.log('Error in onReset:', err);
+        }
+    };
 
     const getLabelColor = (value) => {
         if (value < 25) {

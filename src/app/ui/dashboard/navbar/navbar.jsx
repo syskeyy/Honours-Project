@@ -1,8 +1,8 @@
-"use client"
 import styles from './navbar.module.css';
 import Link from 'next/link';
-import {useSession} from 'next-auth/react';
-import {usePathname} from 'next/navigation';
+import PathName from "./client/pathname"
+import ProfilePicture from './client/profilePicture';
+import Achievement from '../achievements/achievementNavbar';
 import {
     MdOutlineNotificationsNone,
     MdStarOutline,
@@ -12,25 +12,22 @@ import {
 
 const Navbar = () => {
 
-    const Pathname = usePathname();
-    const showSelectInput = Pathname === '/dashboard'; 
-    const {data: session} = useSession();
-
     return (
         <div className={styles.container}>
-            <div className={styles.title}>{Pathname.split("/").pop()}</div>
+            <PathName/>
             <div className={styles.input}>
-
             </div>
             <div className={styles.menu}>
                 <div className={styles.notification}>
-                    <MdStarOutline size={30}/>
-                    <span className={styles.pointsTitle}>Level 1</span>
+                    <Link href="/dashboard/achievements">
+                         <MdStarOutline className={styles.starIcon} size={30}/>
+                    </Link>
+                    <Achievement/>
                     <MdOutlineNotificationsNone size={30}/>
                 </div>
                 <div className={styles.ProfileIcon}>
                     <Link href="/dashboard/profile">
-                    <img className={styles.ProfileIconImage} src={session?.user?.image || "/landscape-placeholder.svg"} alt="profile icon"/>   
+                        <ProfilePicture/>
                     </Link>
                     <span className={styles.profileTitle}>Profile</span>
                 </div>

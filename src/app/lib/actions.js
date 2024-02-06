@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { Bicycles } from './models';
 import { Rides } from './models';
 import { User } from './models';
+import { Settings } from './models';
 import { connectToMongo } from './utils';
 import { redirect } from 'next/navigation';
 import { getServerSession } from "next-auth/next";
@@ -74,12 +75,21 @@ export const addRides = async (formData) => {
     const ridedescription = formData.get('ridedescription');
         try{
             connectToMongo();
+            const settings = await Settings.findOne({ userEmail: session.user.email, });
             const bicycles = (await Bicycles.find({ bicyclename: ridebicycle }).sort({ createdAt: -1 }).limit(1));
             const previousBicycle = bicycles[0];
-            let drivetrainhealth = previousBicycle ? previousBicycle.drivetrainhealth - 20 : 100;
-            let brakehealth = previousBicycle ? previousBicycle.brakehealth - 10 : 100;
-            let tyrehealth = previousBicycle ? previousBicycle.tyrehealth - 15 : 100;
-            let bikehealth = previousBicycle ? previousBicycle.bikehealth - 5 : 100;
+
+            let drivetrainLifespan = settings ? settings.drivetrainLifespan : 20;
+            let drivetrainhealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.drivetrainhealth - drivetrainLifespan)) : 20;
+
+            let brakeLifespan = settings ? settings.brakeLifespan : 20;
+            let brakehealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.brakehealth - brakeLifespan)) : 20;
+
+            let tyreLifespan = settings ? settings.tyreLifespan : 20;
+            let tyrehealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.tyrehealth - tyreLifespan)) : 20;
+            
+            let bikeLifespan = settings ? settings.bikeLifespan : 10;
+            let bikehealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.bikehealth - bikeLifespan)) : 20;
 
             await Bicycles.updateOne({ bicyclename: ridebicycle }, { $set: { drivetrainhealth: drivetrainhealth, brakehealth: brakehealth, tyrehealth: tyrehealth, bikehealth: bikehealth } });
 
@@ -210,20 +220,22 @@ export const UpdateBikeHealth = async () => {
     }
 }
 
+
 export const updateExperiance = async () => {
     const session = await getServerSession()
-    const userEmail = session?.user?.email
+    const email = session?.user?.email
 
     try{
         connectToMongo();
-        const user = await User.findOne({ userEmail: userEmail });
+        const user = await User.findOne({ email: email });
+        console.log('user:', user);
         if (user) {
             user.xp += 10;
             await user.save();
-            console.log(user)
+            console.log(user.xp)
             return user.xp;
         } else {
-            throw new Error('No user found for this email');
+            throw new Error('No xp field found for this user');
         }
     }
     catch(err){
@@ -231,3 +243,32 @@ export const updateExperiance = async () => {
         throw new Error('Error updating experience');
     }
 }
+
+export const addSettings = async (formData) => {
+    const session = await getServerSession();
+    const userEmail = session?.user?.email;
+    const drivetrainLifespan = formData.get('drivetrainLifespan');
+    const brakeLifespan = formData.get('brakeLifespan');
+    const tyreLifespan = formData.get('tyreLifespan');
+    const bikeLifespan = formData.get('bikeLifespan');
+  
+    try {
+      connectToMongo();
+      let settings = await Settings.findOneAndUpdate(
+        { userEmail: userEmail },
+        {
+          userEmail: userEmail,
+          drivetrainLifespan,
+          brakeLifespan,
+          tyreLifespan,
+          bikeLifespan
+        },
+        { new: true, upsert: true });
+    } catch (err) {
+      console.log(err.errors);
+      throw new Error('Error submitting settings');
+    }
+  
+    revalidatePath("/dashboard");
+    redirect("/dashboard");
+  }
