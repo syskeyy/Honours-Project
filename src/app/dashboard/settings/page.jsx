@@ -1,14 +1,24 @@
 import styles from "../../ui/dashboard/settings/settings.module.css"
 import React from "react";
 import { addSettings } from "../../lib/actions"
+import {
+  MdOutlineNotificationsNone,
+  MdStarOutline,
+  MdSearch,
+} from "react-icons/md";
 
 const Settings = async() => {
 
     return (
       <div className={styles.container}>
+        <div className={styles.banner}>
+        </div>
         <form action={addSettings} className={styles.form}>
-          <label className={styles.checkboxLabel} htmlFor="notifications">Don't Receive Email Notifications</label>
-          <label className={styles.checkboxLabel} htmlFor="notifications">Notification Threshold</label>
+          <label className={styles.checkboxLabel} htmlFor="notifications">
+          <input className={styles.toggle} type="checkbox" />
+          </label>
+          <label className={styles.checkboxLabel} htmlFor="notifications">Email Notification Threshold
+          </label>
           <select id="notificationThreshold" name="notificationThreshold">
             <option value="10">10%</option>
             <option value="20">20%</option>

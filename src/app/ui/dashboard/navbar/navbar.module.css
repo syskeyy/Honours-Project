@@ -18,6 +18,8 @@
 .ProfileIconImage{
     width: 2rem;
     border-radius: 2rem;
+    height: 100%;
+
 }
 
 .title{
@@ -64,11 +66,10 @@
 }
 
 .ProfileIcon{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
+    padding: 0;
 }
+
 .starIcon:hover {
-    fill: var(--greenTwo);
+    background-color: var(--green);
+    border-radius: 20px;
 }

@@ -29,8 +29,8 @@ const Navbar = () => {
                     <Link href="/dashboard/profile">
                         <ProfilePicture/>
                     </Link>
-                    <span className={styles.profileTitle}>Profile</span>
                 </div>
+                <span className={styles.profileTitle}>Profile</span>
             </div>
          </div>
         )

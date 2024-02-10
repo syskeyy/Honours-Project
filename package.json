@@ -9,6 +9,7 @@
     "lint": "next lint --ext .ts,.tsx"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@ramonak/react-progress-bar": "^5.2.0",
     "@react-navigation/native": "^6.1.9",
     "axios": "^1.6.5",

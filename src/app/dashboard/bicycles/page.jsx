@@ -11,6 +11,8 @@ const BicyclePage = async({searchParams}) => {
 
     return (
       <div className={styles.container}>
+        <div className={styles.banner}>
+        </div>
         <div className={styles.top}>
           <Search placeholder="Search for a bicycle"/>
           <Link href="/dashboard/bicycles/add">

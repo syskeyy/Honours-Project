@@ -1,6 +1,5 @@
 .container{
     background-color: var(--bgExtraSoft);
-    padding: 1vw;
     border-radius: 10px;
     margin: 20px;
 }
@@ -9,6 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 1vw;
+    padding-left: 1vw;
+
 }
 
 .addBicycleButton{
@@ -33,7 +35,8 @@
 }
 
 .table{
-    
+    padding: 1vw;
+
     width: 100%;
     gap: 10px;
     align-items: center;
@@ -56,3 +59,17 @@
         background-color: var(--green);
         color: white;
 }
+
+.banner{
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    background-color: #213233;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(2, 161, 65, 0.3)), url('/bicyclepage.jpeg');
+    background-size: cover;
+    background-position: 50% 70%;
+}
+
+
