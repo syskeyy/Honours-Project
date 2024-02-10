@@ -9,6 +9,8 @@ import { fetchAllBicycle } from '../lib/data.js'
 import { fetchDrivetrainHealth, fetchBikeHealth, fetchTyreHealth, fetchBrakeHealth} from '../lib/data.js';
 import NoBike from '../ui/dashboard/card/noBike/nobike' 
 import DashboardSearch from '../ui/dashboard/dashboardSearch/dashboardSearch'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = async(onReset) => {
   const bicycles = await fetchAllBicycle();
@@ -22,6 +24,8 @@ const Dashboard = async(onReset) => {
 
     return (
       <div className={styles.wrapper}>
+        <ToastContainer
+        position='top-center'/>
         <div className={styles.main}>
           <DashboardSearch/>
           <div className={styles.cards}>

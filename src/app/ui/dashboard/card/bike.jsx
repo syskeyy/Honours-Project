@@ -10,6 +10,7 @@ import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateBikeHealth } from "../../../lib/actions";
 import {updateExperiance} from "../../../lib/actions";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Bike = ({ bikehealth }) => {
     const [value, setValue] = useState(bikehealth); 
@@ -19,6 +20,10 @@ const Bike = ({ bikehealth }) => {
             const health = await UpdateBikeHealth();
             if (value < 100) {
                await updateExperiance();
+               toast.success("🚲 Bike health has been reset successfully!");
+            }
+            else {
+                toast.warning("Bike health is already at 100%");
             }
             setValue(health);
         } catch (err) {

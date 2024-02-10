@@ -159,6 +159,18 @@ const UserSettings = new mongoose.Schema(
         min: 1,
         max: 100
       },
+      notificationOff: {
+        type: Boolean,
+        required: false,
+        default: false
+      },
+      notificationThreshold: {
+        type: Number,
+        required: false,
+        default: 20,
+        min: 1,
+        max: 100
+      }
     },
     { timestamps: true },
   );

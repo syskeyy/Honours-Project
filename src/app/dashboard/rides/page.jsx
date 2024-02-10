@@ -3,7 +3,8 @@ import Pages from "../../ui/dashboard/pagenumbers/pages"
 import Search from "../../ui/dashboard/search/search"
 import Link from "next/link"
 import { fetchRides } from "../../lib/data.js"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RidesPage = async({searchParams}) => {
 
@@ -15,6 +16,8 @@ const RidesPage = async({searchParams}) => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer
+        position='top-center'/>
       <div className={styles.banner}>
       </div>
       <div className={styles.top}>

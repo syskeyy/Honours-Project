@@ -14,11 +14,11 @@ const Settings = async() => {
         <div className={styles.banner}>
         </div>
         <form action={addSettings} className={styles.form}>
-          <label className={styles.checkboxLabel} htmlFor="notifications">
-          <input className={styles.toggle} type="checkbox" />
-          </label>
-          <label className={styles.checkboxLabel} htmlFor="notifications">Email Notification Threshold
-          </label>
+          <div className={styles.checkboxContainer}>
+            <input className={styles.toggle} name="checkbox" type="checkbox" />
+            <label className={styles.labelCheckbox} htmlFor="drivetrainLifespan">Disable notifications</label>
+          </div>
+          <label className={styles.checkboxLabel}htmlFor="notifications">Notification Threshold</label>
           <select id="notificationThreshold" name="notificationThreshold">
             <option value="10">10%</option>
             <option value="20">20%</option>

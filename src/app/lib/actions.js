@@ -92,7 +92,6 @@ export const addRides = async (formData) => {
             let bikehealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.bikehealth - bikeLifespan)) : 20;
 
             await Bicycles.updateOne({ bicyclename: ridebicycle }, { $set: { drivetrainhealth: drivetrainhealth, brakehealth: brakehealth, tyrehealth: tyrehealth, bikehealth: bikehealth } });
-
             const newRides = new Rides({
                 userEmail: session.user.email,
                 ridename,
@@ -103,7 +102,6 @@ export const addRides = async (formData) => {
                 ridedescription,
                 ridespeed
             });
-        
         await newRides.save();
         }catch(err){
             console.log(err.errors);
@@ -251,7 +249,8 @@ export const addSettings = async (formData) => {
     const brakeLifespan = formData.get('brakeLifespan');
     const tyreLifespan = formData.get('tyreLifespan');
     const bikeLifespan = formData.get('bikeLifespan');
-  
+    const notificationOff = formData.has('checkbox');
+    const notificationThreshold = formData.get('notificationThreshold');
     try {
       connectToMongo();
       let settings = await Settings.findOneAndUpdate(
@@ -261,7 +260,9 @@ export const addSettings = async (formData) => {
           drivetrainLifespan,
           brakeLifespan,
           tyreLifespan,
-          bikeLifespan
+          bikeLifespan,
+          notificationOff,
+          notificationThreshold
         },
         { new: true, upsert: true });
     } catch (err) {

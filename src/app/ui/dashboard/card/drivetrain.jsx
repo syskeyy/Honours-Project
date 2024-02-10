@@ -10,6 +10,7 @@ import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateDrivetrainHealth } from '../../../lib/actions';
 import {updateExperiance} from "../../../lib/actions";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Drivetrain = ({ drivetrainhealth }) => {
     const [value, setValue] = useState(drivetrainhealth); 
@@ -19,6 +20,10 @@ const Drivetrain = ({ drivetrainhealth }) => {
             const health = await UpdateDrivetrainHealth();
             if (value < 100) {
                await updateExperiance();
+                toast.success("🚲 Drivetrain health has been reset successfully!");
+            }
+            else {
+                toast.warning("Drivetrain health is already at 100%");
             }
             setValue(health);
         } catch (err) {

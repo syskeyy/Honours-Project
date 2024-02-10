@@ -26,6 +26,7 @@
     "react-icons": "^4.11.0",
     "react-navigation": "^5.0.0",
     "react-switch": "^7.0.0",
+    "react-toastify": "^10.0.4",
     "recharts": "^2.9.0",
     "sass": "^1.70.0",
     "swr": "^2.2.4",
