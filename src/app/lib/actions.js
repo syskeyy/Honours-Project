@@ -79,6 +79,8 @@ export const addRides = async (formData) => {
             const bicycles = (await Bicycles.find({ bicyclename: ridebicycle }).sort({ createdAt: -1 }).limit(1));
             const previousBicycle = bicycles[0];
 
+
+
             let drivetrainLifespan = settings ? settings.drivetrainLifespan : 20;
             let drivetrainhealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.drivetrainhealth - drivetrainLifespan)) : 20;
 
@@ -91,7 +93,7 @@ export const addRides = async (formData) => {
             let bikeLifespan = settings ? settings.bikeLifespan : 10;
             let bikehealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.bikehealth - bikeLifespan)) : 20;
 
-            await Bicycles.updateOne({ bicyclename: ridebicycle }, { $set: { drivetrainhealth: drivetrainhealth, brakehealth: brakehealth, tyrehealth: tyrehealth, bikehealth: bikehealth } });
+            await Bicycles.updateOne({ bicyclename: ridebicycle }, { $set: { drivetrainhealth: drivetrainhealth, brakehealth: brakehealth, tyrehealth: tyrehealth, bikehealth: bikehealth }, $inc: { bicyclemileage: ridedistance}});
             const newRides = new Rides({
                 userEmail: session.user.email,
                 ridename,

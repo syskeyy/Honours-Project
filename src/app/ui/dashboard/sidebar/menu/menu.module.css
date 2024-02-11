@@ -5,10 +5,12 @@
     gap: 20px;
     margin: 5px 0px;
     border-radius: 20px;
-    
+
 }
 
 .container:hover, .active{
     background-color: rgb(2, 161, 65);
+    border: 1px solid white;
+
 
 }

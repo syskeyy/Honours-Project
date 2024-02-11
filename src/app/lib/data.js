@@ -1,6 +1,7 @@
 import { Bicycles } from './models.js';
 import { Rides } from './models.js';
 import { User } from './models.js';
+import { Settings } from './models.js';
 import { connectToMongo } from './utils';
 import { getServerSession } from 'next-auth/next'
 
@@ -58,7 +59,28 @@ export const fetchRides = async (q, page) => {
 
     const regex = new RegExp(q, "i");
 
-    const ITEM_PER_PAGE = 10;
+    const ITEM_PER_PAGE = 8;
+    try{
+        connectToMongo();
+        const count = await Rides.find({ridename: {$regex:regex}, userEmail: userEmail}).count();
+        const rides = await Rides.find({ridename: {$regex:regex}, userEmail: userEmail}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page - 1));
+        return {rides, count};
+
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching rides');
+
+    }
+}
+
+export const fetchRidesDashboard = async (q, page) => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+
+    const regex = new RegExp(q, "i");
+
+    const ITEM_PER_PAGE = 4;
     try{
         connectToMongo();
         const count = await Rides.find({ridename: {$regex:regex}, userEmail: userEmail}).count();
@@ -190,6 +212,27 @@ export const fetchExperiance = async () => {
         connectToMongo();
         const user = await User.findOne({ email: email });
         return user.xp;
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error updating experience');
+    }
+}
+
+export const fetchLifespan = async () => {
+    const session = await getServerSession()
+    const userEmail = session?.user?.email
+
+    try{
+        connectToMongo();
+        const lifespan = await Settings.findOne({ userEmail: userEmail });
+        return {
+            drivetrainLifespan: lifespan.drivetrainLifespan,
+            brakeLifespan: lifespan.brakeLifespan,
+            tyreLifespan: lifespan.tyreLifespan,
+            bikeLifespan: lifespan.bikeLifespan
+        }
+
     }
     catch(err){
         console.log(err);

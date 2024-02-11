@@ -47,7 +47,7 @@
 
 .viewButton{
     border-radius: 10px;
-    border: 3px solid var(--green);
+    border: 3px solid #ffff;
     gap: 10px;
     background-color: var(--bgExtraSoft);
     color: white;
@@ -74,3 +74,6 @@
     background-position: center;
 }
 
+.table tbody{
+    font-weight: 200;
+}

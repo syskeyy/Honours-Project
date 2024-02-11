@@ -9,9 +9,6 @@
     background-color: var(--bgSoft);
     padding: 40px;
     min-height: 100vh;
-    
-
-
 }
 
 .content{
@@ -23,20 +20,23 @@
     display: flex;
     gap: 20px;
     padding: 20px;
-    
 }
 
 .main{
     flex: 4;
     border-radius: 10px;
-
 }
 
 .cards{
     display: flex;
     gap: 20px;
     justify-content: space-between;
+}
 
+.userDetails{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between; 
 }
 
 .input {

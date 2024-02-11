@@ -1,10 +1,10 @@
-"use client"
 import styles from "../ui/dashboard/login/login.module.css"
 import Image from 'next/image'
-import { useSession, signIn } from 'next-auth/react'
+import LoginButton from "../ui/dashboard/login/loginButton"
 
-const Login = () => {
-  return (
+export default async function Login(){
+
+ return (
     <div className={styles.container}>
       <div className={styles.logins}>
         <form action="" className={styles.form}>
@@ -13,15 +13,12 @@ const Login = () => {
           <input type="username" className="Username" />
           <label className={styles.label} htmlFor="password">Password</label>
           <input type="password" className="Password" />
-          <button className={styles.googleSignInButton} onClick={() => signIn('google')}>
-            <img src="/Google.svg" width="40" height="40" alt="Google Sign-In" />
-            Sign in with Google
-          </button>
+          <LoginButton/>
         </form>
       </div>
       <div className={styles.poster}>
         <Image layout="fill"
-        objectFit="cover"
+        loading="eager" 
         src="/backgroundPoster.jpg"
         alt="Picture of the author"
         />
@@ -29,5 +26,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login

@@ -11,6 +11,7 @@ import NoBike from '../ui/dashboard/card/noBike/nobike'
 import DashboardSearch from '../ui/dashboard/dashboardSearch/dashboardSearch'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { fetchLifespan } from '../lib/data.js';
 
 const Dashboard = async(onReset) => {
   const bicycles = await fetchAllBicycle();
@@ -21,6 +22,12 @@ const Dashboard = async(onReset) => {
     const bikehealth = await fetchBikeHealth();
     const tyrehealth = await fetchTyreHealth();
     const brakehealth = await fetchBrakeHealth();
+    
+    const lifespan = await fetchLifespan();
+    const drivetrainLifespan = lifespan.drivetrainLifespan;
+    const brakeLifespan = lifespan.brakeLifespan;
+    const tyreLifespan = lifespan.tyreLifespan;
+    const bikeLifespan = lifespan.bikeLifespan;
 
     return (
       <div className={styles.wrapper}>
@@ -29,12 +36,15 @@ const Dashboard = async(onReset) => {
         <div className={styles.main}>
           <DashboardSearch/>
           <div className={styles.cards}>
-            <Drivetrain drivetrainhealth={drivetrainhealth} onReset={onReset} />
-            <Brakes brakehealth={brakehealth} onReset={onReset} />
-            <Tyres tyrehealth={tyrehealth} onReset={onReset} />
-            <Bike bikehealth={bikehealth} onReset={onReset}/>
+            <Drivetrain drivetrainhealth={drivetrainhealth} drivetrainLifespan={drivetrainLifespan} onReset={onReset} />
+            <Brakes brakehealth={brakehealth} brakeLifespan={brakeLifespan} onReset={onReset} />
+            <Tyres tyrehealth={tyrehealth} tyreLifespan={tyreLifespan} onReset={onReset} />
+            <Bike bikehealth={bikehealth} bikeLifespan={bikeLifespan} onReset={onReset}/>
           </div>
-          <Chart/>
+          <div className={styles.userDetails}>
+            <Chart/>
+            <Rides/>
+          </div>
         </div>
       </div>
     )

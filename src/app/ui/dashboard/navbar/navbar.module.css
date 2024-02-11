@@ -70,6 +70,6 @@
 }
 
 .starIcon:hover {
-    background-color: var(--green);
-    border-radius: 20px;
+    color: var(--green);
+    cursor: pointer;
 }

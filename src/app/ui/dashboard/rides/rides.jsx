@@ -1,45 +1,41 @@
 import styles from "./rides.module.css"
+import { fetchRidesDashboard } from "../../../lib/data"
 
-const Rides = () => {
-    return (
-        <div className={styles.container}>
-            <h2 className={styles.title}>Latest Rides</h2>
-            <table className={styles.table}>
-                <thead>
-                    <tr className={styles.tableTitle}>
-                        <td>Name</td>
-                        <td>Distance</td>
-                        <td>Speed</td>
-                        <td>Date</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Aberdeen</td>
-                        <td>10km</td>
-                        <td>20km/h</td>
-                        <td>01/01/2021</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>Aberdeen</td>
-                        <td>10km</td>
-                        <td>20km/h</td>
-                        <td>01/01/2021</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr>
-                        <td>Aberdeen</td>
-                        <td>10km</td>
-                        <td>20km/h</td>
-                        <td>01/01/2021</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    )
+const Rides = async() => {
+
+  const {count, rides} = await fetchRidesDashboard();
+
+  console.log(rides)
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.banner}>
+      </div>
+      <div className={styles.top}>
+        <span>Recent Rides</span>
+      </div>
+      <table className={styles.table}>
+      <thead>
+        <tr>
+          <td className="tableName">Name</td>
+          <td className="tableType">Ride Distance</td>
+          <td className="tableMileage">Ride Speed</td>
+          <td className="tableMileage">Ride Date</td>
+        </tr>
+      </thead>
+      <tbody>
+      {rides.map((ride)=>(
+       <tr key={ride.id}>  
+        <td>{ride.ridename}</td>
+        <td>{ride.ridedistance}</td>
+        <td>{ride.ridespeed}</td>
+        <td>{ride.ridedate.toString().slice(4, 16)}</td>
+       </tr>
+      ))}
+      </tbody>
+      </table>
+    </div>
+  )
 }
 
 export default Rides

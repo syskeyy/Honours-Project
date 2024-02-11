@@ -6,31 +6,31 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } f
 
 const data = [
     {
-      name: 'Page A',
+      name: '10/02/2024',
       Health: 100,
     },
     {
-      name: 'Page B',
+      name: '17/02/2024',
       Health: 50,
     },
     {
-      name: 'Page C',
+      name: '24/02/2024',
       Health: 50,
     },
     {
-      name: 'Page D',
+      name: '03/03/2024',
       Health: 40,
     },
     {
-      name: 'Page E',
+      name: '10/03/2024',
       Health: 30,
     },
     {
-      name: 'Page F',
+      name: '17/03/2024',
       Health: 100,
     },
     {
-      name: 'Page G',
+      name: '24/03/2024',
       Health: 90,
     },
   ];
@@ -38,7 +38,7 @@ const data = [
 
   const Chart = () => (
     <div className={styles.container}>
-    <h2 className={styles.title}>Bike Maintanence Breakdown</h2>
+    <span className={styles.title}>Bike Maintanence Breakdown</span>
     <ResponsiveContainer width="99%" height="100%" >
         <LineChart
             width={500}

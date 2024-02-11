@@ -11,7 +11,7 @@ import { UpdateTyreHealth } from "../../../lib/actions";
 import {updateExperiance} from "../../../lib/actions";
 import { ToastContainer, toast } from 'react-toastify';
 
-const Tyres = ({ tyrehealth }) => {
+const Tyres = ({ tyrehealth, tyreLifespan}) => {
     const [value, setValue] = useState(tyrehealth); 
 
     const onReset = async () => {
@@ -58,7 +58,7 @@ const Tyres = ({ tyrehealth }) => {
             <div className={styles.gauge}>
                 <SimpleGauge value={value}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
             </div>    
-            <span className={styles.remaining}>Rides Remaining: </span>
+            <span className={styles.remaining}>Wears by: {tyreLifespan}%</span>
         </div>
         <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
     </div>

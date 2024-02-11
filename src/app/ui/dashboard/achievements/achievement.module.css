@@ -49,9 +49,6 @@
     color: white;
   }
 
-  .bottom{
-  }
-
 .containerLevel{
     display: flex;
     flex-direction: row;
