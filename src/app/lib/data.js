@@ -225,17 +225,17 @@ export const fetchLifespan = async () => {
 
     try{
         connectToMongo();
-        const lifespan = await Settings.findOne({ userEmail: userEmail });
+        const lifespan = await Settings.findOne({ userEmail: userEmail })|| {};
         return {
-            drivetrainLifespan: lifespan.drivetrainLifespan,
-            brakeLifespan: lifespan.brakeLifespan,
-            tyreLifespan: lifespan.tyreLifespan,
-            bikeLifespan: lifespan.bikeLifespan
+            drivetrainLifespan: lifespan.drivetrainLifespan || 20,
+            brakeLifespan: lifespan.brakeLifespan|| 20,
+            tyreLifespan: lifespan.tyreLifespan|| 20,
+            bikeLifespan: lifespan.bikeLifespan|| 20
         }
 
     }
     catch(err){
         console.log(err);
-        throw new Error('Error updating experience');
+        throw new Error('Error updating dashboard lifespan');
     }
 }
