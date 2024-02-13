@@ -49,7 +49,7 @@ const Brakes = ({ brakehealth, brakeLifespan}) => {
             <span className={styles.title}>Brakes</span>
         </div>
         <div className={styles.informationContainer}>
-            <Tooltip text="Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. A regular schedule of maintenance (monthly, weekly or more often depending on your type of riding) is important. If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. If you touch the chain with your finger and it comes away black and greasy, that’s a sure sign that a clean and lube are needed. Another sign is hearing excessive amounts of chain noise when you’re pedaling.">
+            <Tooltip text="Your brakes are without a doubt one of the most important parts of your bike. They must be clean, in good condition and properly adjusted before every ride.Over time and after lots of miles on the trail or road, disc brakes lose some of their effectiveness. This leads to longer response times, less efficient braking and less bike control.">
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />
                 </div>

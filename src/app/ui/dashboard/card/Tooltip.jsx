@@ -1,10 +1,11 @@
 import React, {useState} from "react";
+import styles from "./card.module.css"
 
 export const Tooltip = ({text, children}) => {
     const [isVisible, setIsVisible] = useState(false);
     return (
         <div 
-        className="tooltip-container"
+        className={styles.tooltipContainer}
         onMouseEnter={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
         >

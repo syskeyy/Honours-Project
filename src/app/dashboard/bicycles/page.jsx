@@ -16,7 +16,7 @@ const BicyclePage = async({searchParams}) => {
         <div className={styles.top}>
           <Search placeholder="Search for a bicycle"/>
           <Link href="/dashboard/bicycles/add">
-            <button className={styles.addBicycleButton}>Add new bicycle</button>
+             <button className={`${styles.addBicycleButton} ${bicycle.length === 1 ? styles.display : 'none'}`}>Add new bicycle</button>
           </Link>
         </div>
         <table className={styles.table}>

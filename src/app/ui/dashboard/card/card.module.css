@@ -54,19 +54,6 @@
 }
 
 
-.tooltip-icon{
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: aqua;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.tooltip{
-    text-align: center;
-}
 
 .noBikeContainer {
     background-color: var(--bgExtraSoft);
@@ -99,4 +86,18 @@
 .cardButtonNoBike:hover{
     background-color: var(--green);
     color: white;
+}
+
+.informationContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.tooltipContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

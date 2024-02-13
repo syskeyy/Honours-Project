@@ -48,7 +48,7 @@ const Drivetrain = ({ drivetrainhealth, drivetrainLifespan }) => {
             <span className={styles.title}>Drivetrain</span>
         </div>
         <div className={styles.informationContainer}>
-            <Tooltip text="Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. A regular schedule of maintenance (monthly, weekly or more often depending on your type of riding) is important. If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. If you touch the chain with your finger and it comes away black and greasy, that’s a sure sign that a clean and lube are needed. Another sign is hearing excessive amounts of chain noise when you’re pedaling.">
+             <Tooltip text="Drivetrain maintenance can boost your riding performance and keep your cycling on budget. You may need to take care of your drivetrain more often depending on your disipline. For instance, mountain and gravel biking will require more care due to the more adverse riding conditions. Drivetrain care mostly involves degreasing, cleaning and relubing the chain">
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />
                 </div>

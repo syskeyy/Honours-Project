@@ -38,7 +38,7 @@ const data = [
 
   const Chart = () => (
     <div className={styles.container}>
-    <span className={styles.title}>Bike Maintanence Breakdown</span>
+    <span className={styles.title}>Bike Health Breakdown</span>
     <ResponsiveContainer width="99%" height="100%" >
         <LineChart
             width={500}
