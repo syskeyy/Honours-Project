@@ -1,6 +1,7 @@
 import styles from "../../../ui/dashboard/bicycles/newBicycle/newBicycle.module.css"
 import { addBicycles } from "../../../lib/actions.js"
 
+//This is a table page that displays a blank form for users to fill. Upon the user submit button it activates the form action to upload the new bicycle data to the database.
 const NewBicycle = () => {
     return (
       <div className={styles.container}>

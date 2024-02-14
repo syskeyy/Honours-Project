@@ -13,11 +13,17 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchLifespan } from '../lib/data.js';
 
+// This is the main dashboard page, many components are imported and displayed here including the main logic of the website which is the card components of 'drivetrain', 'brakes', 'tyres' and 'bike'.
+// The chart and rides components are also displayed here. The dashboard search component is also displayed here which I will admit looks a little weird. The search component does not work as making it work will require alot of redesinging.
+
 const Dashboard = async(onReset) => {
   const bicycles = await fetchAllBicycle();
+  //Willreturn only the first bicycle in the array that the user is associated with
   const bike = bicycles[0];
 
+  // Basic validation, upon a new user sign up it will display a blank component that instructs the user to add a bicycle
   if (bike) {
+    // Perhaps redundant to fetch all the health and lifespan data here, but this is the way I have done it. I done it here because its a server side page.
     const drivetrainhealth = await fetchDrivetrainHealth();
     const bikehealth = await fetchBikeHealth();
     const tyrehealth = await fetchTyreHealth();
@@ -29,6 +35,7 @@ const Dashboard = async(onReset) => {
     const tyreLifespan = lifespan.tyreLifespan;
     const bikeLifespan = lifespan.bikeLifespan;
 
+    // After fetching the data the data is then passed into the card components
     return (
       <div className={styles.wrapper}>
         <ToastContainer
@@ -48,6 +55,7 @@ const Dashboard = async(onReset) => {
         </div>
       </div>
     )
+    // If the user does not have a bicycle, it will display a blank component that instructs the user to add a bicycle. This can be seen with no bicycles.
     } else {
       return(
         <div className={styles.wrapper}>

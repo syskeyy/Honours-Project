@@ -9,6 +9,7 @@ import {
     MdSearch,
 } from "react-icons/md";
 
+// Navbar component that displays the current pathname, notifications, and profile picture, current user level. The notifications does not do anything as this part has not been set up yet.
 
 const Navbar = () => {
 

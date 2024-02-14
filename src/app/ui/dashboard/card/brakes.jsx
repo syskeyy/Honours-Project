@@ -49,6 +49,7 @@ const Brakes = ({ brakehealth, brakeLifespan}) => {
             <span className={styles.title}>Brakes</span>
         </div>
         <div className={styles.informationContainer}>
+            {/*Text is in reference to: https://www.rei.com/learn/expert-advice/brakes.html */}
             <Tooltip text="Your brakes are without a doubt one of the most important parts of your bike. They must be clean, in good condition and properly adjusted before every ride.Over time and after lots of miles on the trail or road, disc brakes lose some of their effectiveness. This leads to longer response times, less efficient braking and less bike control.">
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />

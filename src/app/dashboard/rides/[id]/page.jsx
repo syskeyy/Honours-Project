@@ -7,8 +7,13 @@ const ViewRidePage = async({params}) => {
 
   const { id } = params;
 
+  //This is the 'view' ride page, this page is loaded when user clicks on view and opens the id of the ride
+
   const ride = await fetchRide(id);
   console.log(ride)
+
+    // This is just the form to display the ride details. This form has an action of 'deleteRide' which can be seen in the actions.js file.
+
     return (
         <div className={styles.container}>
           <form action={deleteRide} className={styles.form}>

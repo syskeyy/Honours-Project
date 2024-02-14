@@ -48,6 +48,7 @@ const Tyres = ({ tyrehealth, tyreLifespan}) => {
             <span className={styles.title}>Tyres</span>
         </div>
         <div className={styles.informationContainer}>
+            {/*Text is in reference to: https://www.rodalink.com/sg/blog/how-to-take-a-good-care-of-your-bicycle-tire*/}
             <Tooltip text="Pumping your tire can be a crucial yet forgotten part of maintaining a bicycle. Sometimes you can go for weeks without adding some air into your wheel. This situation can cause a great failure when riding.">
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />

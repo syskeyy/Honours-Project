@@ -5,6 +5,7 @@ import styles from "./search.module.css"
 import { MdSearch } from "react-icons/md"
 import { useDebouncedCallback } from 'use-debounce'
 
+// Component that displays the search bar and allows the user to search for items. This is once again referenced quite heavily from the next.JS dashboard tutorial: https://youtu.be/cBg6xA5C60s
 const Search = ({placeholder}) => {
   const searchParams = useSearchParams()
   const pathname = usePathname();
@@ -26,9 +27,6 @@ const Search = ({placeholder}) => {
     replace(`${pathname}?${params.toString()}`)
   },500);
 
-
-  console.log(pathname)
-  console.log(searchParams)
 
     return (
       <div className={styles.container}>

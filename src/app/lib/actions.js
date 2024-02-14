@@ -1,5 +1,6 @@
 "use server"
 
+// Imports
 import { revalidatePath } from 'next/cache';
 import { Bicycles } from './models';
 import { Rides } from './models';
@@ -9,6 +10,8 @@ import { connectToMongo } from './utils';
 import { redirect } from 'next/navigation';
 import { getServerSession } from "next-auth/next";
 
+// The common trend you will see in both the actions.js and data.js files is the use of user session to validate the user to their data. The user email is the unique ID used on all fields.
+// Upon the creation of a new bicycle, the drivetrain, brake, tyre and bike health are all set to 100. The bicycle is then saved to the database.
 export const addBicycles = async (formData) => {
     const session = await getServerSession();
     const bicyclename = formData.get('bicyclename');
@@ -46,7 +49,7 @@ export const addBicycles = async (formData) => {
     redirect("/dashboard/bicycles");
 }
 
-
+// The deleteBicycle function is used to delete a bicycle from the database. It uses the bicycle id to find the bicycle and then deletes it.
 export const deleteBicycle = async (formData) => {
     const { id } = Object.fromEntries(formData);
 
@@ -64,6 +67,7 @@ export const deleteBicycle = async (formData) => {
     redirect("/dashboard/bicycles");
 }
 
+// Adds user rides but also updates the bicycle component healths as seen, if value is blank then it defaults to 20. As you can see it will return the bicycle the user has most recently created at which means only the most recent bicycle will be updated.
 export const addRides = async (formData) => {
     const session = await getServerSession();
     const ridename = formData.get('ridename');
@@ -78,8 +82,6 @@ export const addRides = async (formData) => {
             const settings = await Settings.findOne({ userEmail: session.user.email, });
             const bicycles = (await Bicycles.find({ bicyclename: ridebicycle }).sort({ createdAt: -1 }).limit(1));
             const previousBicycle = bicycles[0];
-
-
 
             let drivetrainLifespan = settings ? settings.drivetrainLifespan : 20;
             let drivetrainhealth = previousBicycle ? Math.max(0, Math.min(100, previousBicycle.drivetrainhealth - drivetrainLifespan)) : 20;
@@ -113,6 +115,7 @@ export const addRides = async (formData) => {
     redirect("/dashboard/rides");
 }
 
+// The deleteRide function is used to delete a ride from the database. It uses the ride id to find the ride and then deletes it.
 export const deleteRide = async (formData) => {
     const { id } = Object.fromEntries(formData);
 
@@ -129,7 +132,8 @@ export const deleteRide = async (formData) => {
     redirect("/dashboard/rides");
 }
 
-
+// These functions are used to update the component health of a bicycle in the database. This gets fetched when a user clicks on the 'reset service' in the dashboard. 
+// This is not a great way of doing so as I have 4 different functions for each health component. I should have made a single function that could do it.
 export const UpdateDrivetrainHealth = async () => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -244,6 +248,7 @@ export const updateExperiance = async () => {
     }
 }
 
+// This function is used to add settings to the database. 
 export const addSettings = async (formData) => {
     const session = await getServerSession();
     const userEmail = session?.user?.email;

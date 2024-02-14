@@ -5,13 +5,15 @@ import React from "react";
 import {fetchExperiance} from "../../lib/data.js";
 
 const Achievement = async ({  }) => {
+  //Fetches the current experiance of user
   const currentXp = await fetchExperiance();
+  //This bit simply calculates the current level of the user
   const xpPerLevel = 100;
   const getCurrentLevel = Math.floor(currentXp/100);
-
   const level = Math.floor(currentXp / xpPerLevel);
   const finalXp = currentXp % xpPerLevel;
   
+  //This bit returns the the JSX for the achievement page and checks to see current level, if current level is achieved then check mark will activate
     return (
           <div className={styles.container}>
             <div className={styles.top}>

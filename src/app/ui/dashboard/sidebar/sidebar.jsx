@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/react'
 
+// Icons for the menu items
 import {
     MdPedalBike,
     MdBadge,
@@ -16,7 +17,7 @@ import {
 
 } from "react-icons/md";
 
-
+// Menu items, icons, and paths
 const menuItems = [
     {   
         list: [
@@ -50,6 +51,7 @@ const menuItems = [
     },
 ]
 
+// Menu top that shows logo, and website name
 const Sidebar = () => {
     return (
         <div className={styles.container}>
@@ -63,6 +65,7 @@ const Sidebar = () => {
 
             </div>
         </div>
+        {/* Menu item list */}
         <ul className={styles.list}>
                 {menuItems.map((items) => (
                     <li key={items.title}>

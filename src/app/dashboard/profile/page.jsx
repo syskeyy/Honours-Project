@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "../../ui/dashboard/profile/profile.module.css";
 import { getServerSession } from "next-auth/next";
 
+//Gets server session from next auth, If session exists, display user profile which it should realistically as there is middleware anyway that validates if a user is logged in.
 
 export default async function Profile(){
   const session = await getServerSession();

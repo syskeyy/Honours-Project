@@ -3,8 +3,9 @@ import Pages from "../../ui/dashboard/pagenumbers/pages"
 import Search from "../../ui/dashboard/search/search"
 import Link from "next/link"
 import { fetchRides } from "../../lib/data.js"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+  //This is a table page that displays the users rides. It will fetch all the rides users are associated with using their session email, when user clicks on 'view' button it will open the ride id page
+  //Unlike the bicycle page, this page will have an actual way of going to the next page and previous page as rides will be numerous. The pages component can be seen at the top of the import.
 
 const RidesPage = async({searchParams}) => {
 
@@ -12,12 +13,11 @@ const RidesPage = async({searchParams}) => {
   const page = searchParams?.page || 1;
   const {count, rides} = await fetchRides(q, page);
 
+
   console.log(rides)
 
   return (
     <div className={styles.container}>
-      <ToastContainer
-        position='top-center'/>
       <div className={styles.banner}>
       </div>
       <div className={styles.top}>
@@ -41,6 +41,7 @@ const RidesPage = async({searchParams}) => {
         <td>{ride.ridename}</td>
         <td>{ride.ridedistance}</td>
         <td>{ride.ridespeed}</td>
+        {/* Shortened the date format down */}
         <td>{ride.ridedate.toString().slice(4, 16)}</td>
         <td>
             <Link href={`/dashboard/rides/${ride.id}`}>

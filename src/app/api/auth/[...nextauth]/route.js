@@ -3,6 +3,9 @@ import GoogleProvider from "next-auth/providers/google";
 import { connectToMongo } from '../../../lib/utils';
 import { User } from '../../../lib/models';
 
+
+// This bit handles the authentication of the user with the google provider. 
+// Reference to code is : https://youtu.be/bkUmN9TH_hQ and https://next-auth.js.org/providers/google
 const handler = NextAuth({
     providers: [
         GoogleProvider({

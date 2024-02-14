@@ -5,11 +5,14 @@ import { deleteBicycle } from "../../../lib/actions.js";
 
 const ViewBicyclePage = async ({ params }) => {
 
-  const { id } = params;
 
+  //This is the 'view' bicycle page, this page is loaded when user clicks on view and opens the id of the bicycle
+  const { id } = params;
+  // Fetches bicycle using id
   const bicycle = await fetchBicycle(id);
   console.log(bicycle)
 
+  // This is just the form to display the bicycle details. This form has an action of 'deleteBicycle' which can be seen in the actions.js file.
     return (
         <div className={styles.container}>
         <form action={deleteBicycle} className={styles.form}>

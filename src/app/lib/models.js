@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 
+//This is the schema for the mongodb database. 
+// Bicycle collection schema. This is quite self explanatory.
+
+//Schema is references from https://mongoosejs.com/docs/schematypes.html
 const BicycleSchema = new mongoose.Schema({
     userEmail: {
       type: String,
@@ -55,6 +59,8 @@ const BicycleSchema = new mongoose.Schema({
     }
   },{timestamps: true});
 
+// Bicycle collection schema. 
+
 const RidesSchema = new mongoose.Schema({
     userEmail: {
       type: String,
@@ -99,7 +105,7 @@ const RidesSchema = new mongoose.Schema({
     }
   },{timestamps: true});
 
-
+// User collection schema.
 const UserSchema = new mongoose.Schema(
     {
       name: {
@@ -124,7 +130,7 @@ const UserSchema = new mongoose.Schema(
     },
     { timestamps: true },
   );
-
+// User settings schema.
 const UserSettings = new mongoose.Schema(
     {
       userEmail: {

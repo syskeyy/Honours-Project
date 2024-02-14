@@ -2,7 +2,7 @@
 import styles from '../navbar.module.css';
 import {useSession} from 'next-auth/react';
 
-
+// Client component that displays the profile picture of the user, used in the navbar
 export default function ProfilePicture()  {
 
     const {data: session} = useSession();

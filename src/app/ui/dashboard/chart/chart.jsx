@@ -3,7 +3,9 @@ import styles from "./chart.module.css"
 import React from 'react';
 
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+// Chart > https://www.npmjs.com/package/recharts
 
+// This is the data for the chart, it is just hardcoded values for now but in the future it would ideally be fetched from the database.
 const data = [
     {
       name: '10/02/2024',

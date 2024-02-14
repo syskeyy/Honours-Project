@@ -2,8 +2,11 @@ import styles from "../../../ui/dashboard/rides/newRides/newRides.module.css"
 import { addRides } from "../../../lib/actions.js"
 import { fetchAllBicycle } from "../../../lib/data.js"
 
-const NewRide = async() => {
+//This is a table page that displays a blank form for users to fill. Upon the user submit button it activates the form action to upload the new ride data to the database.
+// Unlike the bicycle page, this page (ride add page) will map in a bicycle name which will get mapped out onto a select input for users to select which bicycle is associated with their ride.
 
+
+const NewRide = async() => {
   const bicycle = await fetchAllBicycle();
 
     return (

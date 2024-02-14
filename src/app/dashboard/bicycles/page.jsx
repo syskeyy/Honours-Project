@@ -3,12 +3,13 @@ import Search from "../../ui/dashboard/search/search"
 import Link from "next/link"
 import { fetchBicycles } from "../../lib/data.js"
 
+  //This is a table page that displays the users bicycles. It will fetch all the bicycles users are associated with using their session email, when user clicks on 'view' button it will open the bicycle id page
+
 const BicyclePage = async({searchParams}) => {
 
 
   const q = searchParams?.q || '';
   const bicycle = await fetchBicycles(q);
-
     return (
       <div className={styles.container}>
         <div className={styles.banner}>
@@ -28,6 +29,7 @@ const BicyclePage = async({searchParams}) => {
           </tr>
         </thead>
         <tbody>
+        {/* This bit maps the bicycle and displays the bicycle details in the table */}
           {bicycle.map((bicycle) => (
           <tr key={bicycle.id}>
             <td>{bicycle.bicyclename}</td>

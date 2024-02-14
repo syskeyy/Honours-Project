@@ -3,6 +3,7 @@ import styles from "../card.module.css"
 import { IoIosBicycle  } from "react-icons/io";
 import Link from "next/link";
 
+// Component that displays when no bicycle is detected
 const NoBike = () => {
     return (
     <div className={styles.noBikeContainer}>

@@ -1,7 +1,7 @@
 import styles from '../../dashboard/dashboardSearch/dashboardSearch.module.css'
 import { fetchAllBicycle } from '../../../lib/data.js'
 
-
+// This is the component that searches for bicycles and gets displayed in the dashboard. 
 const dashboardSearch = async() => {
 
   const bicycle = await fetchAllBicycle();

@@ -11,7 +11,13 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateBikeHealth } from "../../../lib/actions";
 import {updateExperiance} from "../../../lib/actions";
 import { ToastContainer, toast } from 'react-toastify';
+// Simple gauge > https://www.npmjs.com/package/react-gauges
+// Toastify > https://www.npmjs.com/package/react-toastify
 
+// The bicycle components are client components that are located here and are displayed on the dashboard page. The bicycle components are the main logic of the app. It uses states of the bicycle health and lifespan to display the health of the bicycle. The bicycle health is updated when the user clicks on the reset service button
+// The rest of the components such as brakes, drivetrain, and tyres work the exact same way, the only thing that change are the functions it calls and the icons it uses. The information displayued when gets passed into the tooltip component changes too.
+
+// Use states references from https://legacy.reactjs.org/docs/hooks-state.html
 const Bike = ({ bikehealth, bikeLifespan }) => {
     const [value, setValue] = useState(bikehealth); 
 
@@ -19,6 +25,7 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
         try {
             const health = await UpdateBikeHealth();
             if (value < 100) {
+            // If value is less than 100, then perform the updateExperiance function from lib. The toastify library is used to display a message to the user when the reset service button is clicked. The tooltip component is also used to display a message to the user when they hover over the 'i' icon. The information displayed is just some information about the component and how to maintain it
                await updateExperiance();
                toast.success("🚲 Bike health has been reset successfully!");
             }
@@ -30,7 +37,7 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
             console.log('Error in onReset:', err);
         }
     };
-
+    // This bit sets the colour of the gauge depending on the value of the health. If health is less than 25 the colour will be red. If health is less than 50 the colour will be orange. If health is greater than 50 the colour will be green
     const getLabelColor = (value) => {
         if (value < 25) {
             return "#ff4c4c"; 
@@ -41,7 +48,6 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
         }
     };
 
-
     return (
     <div className={styles.container}>
         <div className={styles.titleContainer}>
@@ -49,6 +55,7 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
             <span className={styles.title}>Bike</span>
         </div>
         <div className={styles.informationContainer}>
+            {/*Text is in reference to: https://www.rei.com/learn/expert-advice/how-to-clean-a-bike.html */}
              <Tooltip text="Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. ">
                 <div className={styles.TooltipIcon}>
                     <IoMdInformationCircleOutline size={20}/>

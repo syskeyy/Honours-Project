@@ -5,7 +5,11 @@ import { Settings } from './models.js';
 import { connectToMongo } from './utils';
 import { getServerSession } from 'next-auth/next'
 
+// fetches a bicycle using a given id. This is done in the search box that displays the bicycle names depending on the user input
 
+// JS Logical operators were referenced from https://www.w3schools.com/js/js_comparisons.asp
+
+// Mongoose methods were referenced from https://mongoosejs.com/docs/api/model.html
 export const fetchBicycles = async (q) => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -22,6 +26,8 @@ export const fetchBicycles = async (q) => {
 
         }
     }
+
+// fetches a bicycle using a given id
 export const fetchBicycle = async (id) => {
 
         try{
@@ -36,6 +42,7 @@ export const fetchBicycle = async (id) => {
         }
     }
     
+// fetches all bicycles associated with the user 
 export const fetchAllBicycle = async () => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -52,7 +59,7 @@ export const fetchAllBicycle = async () => {
 
         }
     }
-
+// fetches all rides associated with the user. Lists 8 entries per page and allows for pagination.
 export const fetchRides = async (q, page) => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -73,6 +80,7 @@ export const fetchRides = async (q, page) => {
 
     }
 }
+// fetches all rides associated with the user. Lists 4 entries for the dashboard page.
 
 export const fetchRidesDashboard = async (q, page) => {
     const session = await getServerSession()
@@ -95,6 +103,7 @@ export const fetchRidesDashboard = async (q, page) => {
     }
 }
 
+// fetches a ride using a given id
 export const fetchRide = async (id) => {
 
     try{
@@ -109,6 +118,7 @@ export const fetchRide = async (id) => {
     }
 }
 
+// next 4 functions are essentially the same, it fetches the user's component healths from the bicycles collection. I admit, this is quite redundant and could have been done like the last function.
 export const fetchDrivetrainHealth = async (q) => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -204,6 +214,7 @@ export const fetchBikeHealth = async (q) => {
     }
 }
 
+// fetches the user's experience from the user collection. This is used in the xp bar in the dashboard.
 export const fetchExperiance = async () => {
     const session = await getServerSession()
     const email = session?.user?.email
@@ -219,6 +230,7 @@ export const fetchExperiance = async () => {
     }
 }
 
+// So this will fetch the users set lifespan for each component. This is used in the card components in the dashboard to display how much a ride affects the lifespan of a component. If empty it will default to 20.
 export const fetchLifespan = async () => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -228,8 +240,8 @@ export const fetchLifespan = async () => {
         const lifespan = await Settings.findOne({ userEmail: userEmail })|| {};
         return {
             drivetrainLifespan: lifespan.drivetrainLifespan || 20,
-            brakeLifespan: lifespan.brakeLifespan|| 20,
-            tyreLifespan: lifespan.tyreLifespan|| 20,
+            brakeLifespan: lifespan.brakeLifespan || 20,
+            tyreLifespan: lifespan.tyreLifespan || 20,
             bikeLifespan: lifespan.bikeLifespan|| 20
         }
 

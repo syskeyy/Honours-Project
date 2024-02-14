@@ -1,6 +1,8 @@
 import styles from "./rides.module.css"
 import { fetchRidesDashboard } from "../../../lib/data"
 
+
+// This is the rides component that gets displayed in the dashboard, it fetches the rides from the database and returns 4 entries and displays it in a table.
 const Rides = async() => {
 
   const {count, rides} = await fetchRidesDashboard();

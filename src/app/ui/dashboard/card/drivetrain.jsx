@@ -48,6 +48,7 @@ const Drivetrain = ({ drivetrainhealth, drivetrainLifespan }) => {
             <span className={styles.title}>Drivetrain</span>
         </div>
         <div className={styles.informationContainer}>
+            {/*Text is in reference to: https://www.bikeperfect.com/features/the-importance-of-drivetrain-maintenance */}
              <Tooltip text="Drivetrain maintenance can boost your riding performance and keep your cycling on budget. You may need to take care of your drivetrain more often depending on your disipline. For instance, mountain and gravel biking will require more care due to the more adverse riding conditions. Drivetrain care mostly involves degreasing, cleaning and relubing the chain">
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />

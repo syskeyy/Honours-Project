@@ -3,6 +3,7 @@
 import styles from "./pages.module.css"
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 
+// Component that displays the page numbers and allows the user to navigate through the pages. This is referenced quite heavily from the next.JS dashboard tutorial: https://youtu.be/cBg6xA5C60s 
 const Pages = ({count}) => {
 
   const searchParams = useSearchParams()
@@ -13,8 +14,6 @@ const Pages = ({count}) => {
 
   const params = new URLSearchParams(searchParams)  
   const ITEM_PER_PAGE = 10;
-
-    {/* Page previous/next logic */}
 
   const hasPrevPage = ITEM_PER_PAGE * (parseInt(page)-1) > 0;
   const hasNextPage = ITEM_PER_PAGE * (parseInt(page)-1) + ITEM_PER_PAGE < count;
