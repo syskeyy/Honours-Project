@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "paths": {
+      "@/core/utils/labels": ["node_modules/react-gauges/src/core/utils/labels"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
