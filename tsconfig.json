@@ -9,6 +9,7 @@
     "paths": {
       "@/core/utils/labels": ["node_modules/react-gauges/src/core/utils/labels"],
       "@/core/simpleGauge": ["node_modules/react-gauges/src/core/simpleGauge"],
+      "@/core/simpleGauge/simpleGauge.types": ["node_modules/react-gauges/src/core/simpleGauge/simpleGauge.types"],
     },
     "allowJs": true,
     "skipLibCheck": true,
