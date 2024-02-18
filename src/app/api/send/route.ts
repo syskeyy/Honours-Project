@@ -2,8 +2,9 @@ import { NextResponse} from 'next/server';
 import { Resend } from 'resend';
 import {fetchEmail} from "../../lib/data"
 
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function GET() {
-  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const users = await fetchEmail(); 
