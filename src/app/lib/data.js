@@ -251,3 +251,20 @@ export const fetchLifespan = async () => {
         throw new Error('Error updating dashboard lifespan');
     }
 }
+
+export const fetchEmail = async () => {
+    try{
+        connectToMongo();
+        const users = await User.find();
+        console.log(users);
+        return users.map(user => ({
+            email: user.email,
+            xp: user.xp,
+            name: user.name
+        }));
+    }
+    catch(err){
+        console.log(err);
+        throw new Error('Error fetching email');
+    }
+}
