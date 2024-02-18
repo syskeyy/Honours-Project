@@ -4,7 +4,7 @@ import {fetchEmail} from "../../lib/data"
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function GET() {
+export async function POST() {
 
   try {
     const users = await fetchEmail(); 
@@ -21,7 +21,6 @@ export async function GET() {
         <h2 style="color: #02a141;">Your Stats:</h2>
         <p>Your current level: ${Math.floor(user.xp / 100).toString()[0]}</p>
         <p>Your current XP: ${user.xp}</p>
-        <p>Continue to service your components and keep earning XP!</p>
         <p>Best, The ChainSafe Team</p>
     </div>
     `, 
