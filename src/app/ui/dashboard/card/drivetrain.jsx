@@ -59,7 +59,7 @@ const Drivetrain = ({ drivetrainhealth, drivetrainLifespan }) => {
             <div className={styles.gauge}>
                 <SimpleGauge value={value}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
             </div>    
-            <span className={styles.remaining}>Wears by: {drivetrainLifespan}%</span>
+            <span className={styles.remaining}>Lifespan: {drivetrainLifespan}km</span>
         </div>
         <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
     </div>

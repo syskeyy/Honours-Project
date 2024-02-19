@@ -22,7 +22,7 @@ const NewBicycle = () => {
           </select>
           <label className={styles.label} htmlFor="year">Bicycle Year</label>
           <input className={styles.input} id="bicycleyear" name="bicycleyear" type="number"/>
-          <label className={styles.label} htmlFor="mileage">Bicycle Mileage</label>
+          <label className={styles.label} htmlFor="mileage">Bicycle Mileage(km)</label>
           <input className={styles.input} id="bicyclemileage" name="bicyclemileage" type="number"/>
           <label className={styles.label} htmlFor="description">Description</label>
           <textarea className={styles.input} id="bicycledescription" name="bicycledescription" type="text" rows="6"> </textarea>

@@ -22,7 +22,7 @@ const NewRide = async() => {
             </option>
           ))}        
         </select>
-          <label className={styles.label} htmlFor="distance">Ride Distance</label>
+          <label className={styles.label} htmlFor="distance">Ride Distance(km)</label>
           <input className={styles.input} id="ridedistance" name="ridedistance" type="number"/>
           <label className={styles.label} htmlFor="date">Date</label>
           <input className={styles.input} id="ridedate" name="ridedate" type="date"/>

@@ -4,7 +4,6 @@ import PathName from "./client/pathname"
 import ProfilePicture from './client/profilePicture';
 import Achievement from '../achievements/achievementNavbar';
 import {
-    MdOutlineNotificationsNone,
     MdStarOutline,
     MdSearch,
 } from "react-icons/md";
@@ -24,7 +23,6 @@ const Navbar = () => {
                          <MdStarOutline className={styles.starIcon} size={30}/>
                     </Link>
                     <Achievement/>
-                    <MdOutlineNotificationsNone size={30}/>
                 </div>
                 <div className={styles.ProfileIcon}>
                     <Link href="/dashboard/profile">

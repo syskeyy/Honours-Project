@@ -28,8 +28,8 @@ const Dashboard = async(onReset) => {
     const bikehealth = await fetchBikeHealth();
     const tyrehealth = await fetchTyreHealth();
     const brakehealth = await fetchBrakeHealth();
-    
     const lifespan = await fetchLifespan();
+    
     const drivetrainLifespan = lifespan.drivetrainLifespan;
     const brakeLifespan = lifespan.brakeLifespan;
     const tyreLifespan = lifespan.tyreLifespan;

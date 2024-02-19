@@ -37,25 +37,25 @@ const BicycleSchema = new mongoose.Schema({
       type: Number,
       required: false,
       min: 0,
-      max: 100
+      max: 1000
     },
     brakehealth: {
       type: Number,
       required: false,
       min: 0,
-      max: 100
+      max: 1000
     },
     tyrehealth: {
       type: Number,
       required: false,
       min: 0,
-      max: 100
+      max: 1000
     },
     bikehealth: {
       type: Number,
       required: false,
       min: 0,
-      max: 100
+      max: 1000
     }
   },{timestamps: true});
 
@@ -140,42 +140,35 @@ const UserSettings = new mongoose.Schema(
       drivetrainLifespan: {
         type: Number,
         required: false,
-        default: 20,
+        default: 100,
         min: 1,
-        max: 100
+        max: 1000
       },
       brakeLifespan: {
         type: Number,
         required: false,
-        default: 20,
+        default: 100,
         min: 1,
-        max: 100
+        max: 1000
       },
       tyreLifespan: {
         type: Number,
         required: false,
-        default: 20,
+        default: 100,
         min: 1,
-        max: 100
+        max: 1000
       },
       bikeLifespan: {
         type: Number,
         required: false,
-        default: 10,
+        default: 100,
         min: 1,
-        max: 100
+        max: 1000
       },
       notificationOff: {
         type: Boolean,
         required: false,
         default: false
-      },
-      notificationThreshold: {
-        type: Number,
-        required: false,
-        default: 20,
-        min: 1,
-        max: 100
       }
     },
     { timestamps: true },

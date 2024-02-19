@@ -2,10 +2,14 @@ import { NextResponse} from 'next/server';
 import { Resend } from 'resend';
 import {fetchEmail} from "../../lib/data"
 
+// Used guide from 
+// Connecting to Resend API
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function GET() {
 
+  // Fetching user data and mapping it to emailData which will be used to send the email along with the email template I have below, I tried using react email template but didnt work, ended up just using plain html
+  // I'm using typescript instead of jsx because the online official and non official documentation show how its done through typescript.
   try {
     const users = await fetchEmail(); 
 
@@ -26,6 +30,7 @@ export async function GET() {
     `, 
   }));
 
+  // according to resend I can send batches instead of the normal email send, which allows for more emails to be sent at once (up to 100): https://resend.com/docs/api-reference/emails/send-batch-emails
     const data = await resend.batch.send(emailData);
 
     return NextResponse.json('Success');

@@ -127,12 +127,12 @@ export const fetchDrivetrainHealth = async (q) => {
     try{
         connectToMongo();
         const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('drivetrainhealth');
-
+        const settings = await Settings.findOne({userEmail: userEmail});
         if (!bike) {
             return 0;
         }
-        
-        return bike.drivetrainhealth;
+        const drivetrainPercentage = bike.drivetrainhealth / ((settings && settings.drivetrainLifespan) ? settings.drivetrainLifespan : 100) * 100;
+        return drivetrainPercentage;
 
     }
     catch(err){
@@ -151,12 +151,12 @@ export const fetchBrakeHealth = async (q, bike) => {
     try{
         connectToMongo();
         const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('brakehealth');
-
+        const settings = await Settings.findOne({userEmail: userEmail});
         if (!bike) {
             return 0;
         }
-        
-        return bike.brakehealth;
+        const brakePercentage = bike.brakehealth / ((settings && settings.brakeLifespan) ? settings.brakeLifespan : 100) * 100;
+        return brakePercentage;
 
     }
     catch(err){
@@ -175,12 +175,13 @@ export const fetchTyreHealth = async (q) => {
     try{
         connectToMongo();
         const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('tyrehealth');
+        const settings = await Settings.findOne({userEmail: userEmail});
 
         if (!bike) {
             return 0;
         }
-        
-        return bike.tyrehealth;
+        const tyrePercentage = bike.tyrehealth / ((settings && settings.tyreLifespan) ? settings.tyreLifespan : 100) * 100;
+        return tyrePercentage;
 
     }
     catch(err){
@@ -199,12 +200,15 @@ export const fetchBikeHealth = async (q) => {
     try{
         connectToMongo();
         const bike = await Bicycles.findOne({bicyclename: {$regex:regex}, userEmail: userEmail}).sort({createdAt: -1}).select('bikehealth');
+        const settings = await Settings.findOne({userEmail: userEmail});
 
         if (!bike) {
             return 0;
         }
-        
-        return bike.bikehealth;
+
+        const bikePercentage = bike.bikehealth / ((settings && settings.bikeLifespan) ? settings.bikeLifespan : 100) * 100;
+        return bikePercentage;
+
 
     }
     catch(err){
@@ -230,7 +234,7 @@ export const fetchExperiance = async () => {
     }
 }
 
-// So this will fetch the users set lifespan for each component. This is used in the card components in the dashboard to display how much a ride affects the lifespan of a component. If empty it will default to 20.
+// So this will fetch the users set lifespan for each component. This is used in the card components in the dashboard to display how much a ride affects the lifespan of a component. If empty it will default to 100.
 export const fetchLifespan = async () => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -239,10 +243,10 @@ export const fetchLifespan = async () => {
         connectToMongo();
         const lifespan = await Settings.findOne({ userEmail: userEmail })|| {};
         return {
-            drivetrainLifespan: lifespan.drivetrainLifespan || 20,
-            brakeLifespan: lifespan.brakeLifespan || 20,
-            tyreLifespan: lifespan.tyreLifespan || 20,
-            bikeLifespan: lifespan.bikeLifespan|| 20
+            drivetrainLifespan: lifespan.drivetrainLifespan || 100,
+            brakeLifespan: lifespan.brakeLifespan || 100,
+            tyreLifespan: lifespan.tyreLifespan || 100,
+            bikeLifespan: lifespan.bikeLifespan || 100
         }
 
     }
