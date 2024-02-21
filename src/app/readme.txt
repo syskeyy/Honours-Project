@@ -18,6 +18,8 @@ Tutorials & Guides
 - https://vercel.com/guides/how-to-setup-cron-jobs-on-vercel : Vercel CronJob
 - https://www.appsloveworld.com/reactjs/100/6/typescript-cannot-find-module-that-was-defined-in-paths-setting : Bug fix for path not being recognised when building
 - https://crontab.guru/ : Used this to get the cron scheduler format correct and date and time
+- https://forum.freecodecamp.org/t/how-to-get-username-from-userid-using-map-function/516256 : Using map method to return user data
+- https://next-auth.js.org/configuration/nextjs : Ignoring paths using middleware
 
 Libraries - Full list is shown in packages.json though many of them are not used
 - https://www.npmjs.com/package/react-toastify: Toastify Library

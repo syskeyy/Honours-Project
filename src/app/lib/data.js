@@ -5,11 +5,12 @@ import { Settings } from './models.js';
 import { connectToMongo } from './utils';
 import { getServerSession } from 'next-auth/next'
 
-// fetches a bicycle using a given id. This is done in the search box that displays the bicycle names depending on the user input
 
 // JS Logical operators were referenced from https://www.w3schools.com/js/js_comparisons.asp
 
 // Mongoose methods were referenced from https://mongoosejs.com/docs/api/model.html
+
+// fetches a bicycle using a given id. This is done in the search box that displays the bicycle names depending on the user input
 export const fetchBicycles = async (q) => {
     const session = await getServerSession()
     const userEmail = session?.user?.email
@@ -256,6 +257,8 @@ export const fetchLifespan = async () => {
     }
 }
 
+// So this bit fetches the users details for the email function. It will return the email, xp and name of the user and turn it into an array using the map method which will get passed into the api/send. 
+// Similar solution was found here: https://forum.freecodecamp.org/t/how-to-get-username-from-userid-using-map-function/516256, I altered it to fit my needs.
 export const fetchEmail = async () => {
     try{
         connectToMongo();

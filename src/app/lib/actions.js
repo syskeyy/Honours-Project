@@ -21,7 +21,7 @@ export const addBicycles = async (formData) => {
     const bicycleyear = formData.get('bicycleyear');
     const bicyclemileage = formData.get('bicyclemileage');
     const bicycledescription = formData.get('bicycledescription');
-        // im checking to see if settings or settings components are empty, if empty it will assign default value of 100, otherwise it will use values from settings
+        // im checking to see if settings or settings components are present, if empty it will assign default value of 100, otherwise it will use values from settings
         try{
             connectToMongo();
             const settings = await Settings.findOne({ userEmail: session.user.email });
@@ -134,7 +134,8 @@ export const deleteRide = async (formData) => {
     redirect("/dashboard/rides");
 }
 
-// These 4 functions below are used to update the component health of a bicycle in the database. This gets updates when a user clicks on the 'reset service' in the dashboard
+// These 4 functions below are used to update the component health of a bicycle in the database. This gets updates when a user clicks on the 'reset service' in the dashboard.
+// It will first search for a bicycle that was most recently created, if bike is found, it will update the health of components. If settings or settings.drivetrainlifespan is empty, it will default to 100.
 // This is not a great way of doing so as I have 4 different functions for each health component. I should have made a single function that could do it
 //The value that it returns at the end is passed into the component gauge to show the % value, I have multiplied it to 100 as it ensures that the gauge will reset too 100%
 
@@ -232,6 +233,7 @@ export const UpdateBikeHealth = async () => {
     }
 }
 
+// Update experiance simply adds 10 xp to the user. This gets called when the user clicks on the reset button, this only works below 100% health
 
 export const updateExperiance = async () => {
     const session = await getServerSession()

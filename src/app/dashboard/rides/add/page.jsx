@@ -13,9 +13,9 @@ const NewRide = async() => {
       <div className={styles.container}>
         <form action={addRides} className={styles.form}>
           <label className={styles.label} htmlFor="name">Ride Name</label>
-          <input className={styles.input} id="ridename" name="ridename" type="text"/>
+          <input className={styles.input} id="ridename" name="ridename" type="text" required/>
           <label className={styles.label} htmlFor="bicycle">Bicycle</label>
-          <select className={styles.input} id="ridebicycle" name="ridebicycle">
+          <select className={styles.input} id="ridebicycle" name="ridebicycle" required>
           {bicycle.map((bicycle) => (
             <option value={bicycle.bicyclename} key={bicycle.id}>
               {bicycle.bicyclename}
@@ -23,13 +23,13 @@ const NewRide = async() => {
           ))}        
         </select>
           <label className={styles.label} htmlFor="distance">Ride Distance(km)</label>
-          <input className={styles.input} id="ridedistance" name="ridedistance" type="number"/>
+          <input className={styles.input} id="ridedistance" name="ridedistance" type="number" required/>
           <label className={styles.label} htmlFor="date">Date</label>
-          <input className={styles.input} id="ridedate" name="ridedate" type="date"/>
+          <input className={styles.input} id="ridedate" name="ridedate" type="date" required/>
           <label className={styles.label} htmlFor="time">Ride Time</label>
-          <input className={styles.input} id="ridetime" name="ridetime" type="time"/>
+          <input className={styles.input} id="ridetime" name="ridetime" type="time" required />
           <label className={styles.label} htmlFor="speed">Ride Speed</label>
-          <input className={styles.input} id="ridespeed" name="ridespeed" type="number"/>
+          <input className={styles.input} id="ridespeed" name="ridespeed" type="number" required/>
           <label className={styles.label} htmlFor="description">Description</label>
           <textarea className={styles.input} id="ridedescription" name="ridedescription" rows="6"> </textarea>
           <button className={styles.submitButton}>Submit</button>

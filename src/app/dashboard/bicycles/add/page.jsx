@@ -7,7 +7,7 @@ const NewBicycle = () => {
       <div className={styles.container}>
         <form action={addBicycles} className={styles.form}>
           <label className={styles.label} htmlFor="name">Bicycle Name</label>
-          <input className={styles.input} id="bicyclename" name="bicyclename" type="text"/>
+          <input className={styles.input} id="bicyclename" name="bicyclename" type="text" required/>
           <label className={styles.label} htmlFor="type">Bicycle Type</label>
           <select className={styles.input} id="bicycletype"  type="text" name="bicycletype">
             <option value="gravel">Gravel</option>
@@ -21,9 +21,9 @@ const NewBicycle = () => {
             <option value="other">Other</option>  
           </select>
           <label className={styles.label} htmlFor="year">Bicycle Year</label>
-          <input className={styles.input} id="bicycleyear" name="bicycleyear" type="number"/>
+          <input className={styles.input} id="bicycleyear" name="bicycleyear" type="number" required/>
           <label className={styles.label} htmlFor="mileage">Bicycle Mileage(km)</label>
-          <input className={styles.input} id="bicyclemileage" name="bicyclemileage" type="number"/>
+          <input className={styles.input} id="bicyclemileage" name="bicyclemileage" type="number" required/>
           <label className={styles.label} htmlFor="description">Description</label>
           <textarea className={styles.input} id="bicycledescription" name="bicycledescription" type="text" rows="6"> </textarea>
           <button className={styles.submitButton}>Submit</button>

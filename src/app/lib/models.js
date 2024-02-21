@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-//This is the schema for the mongodb database. 
-// Bicycle collection schema. This is quite self explanatory.
+//This is the schema for the mongodb database
+// The models are quite self explanatory, I just set the types I wanted to use, and what was required and what was not
 
 //Schema is references from https://mongoosejs.com/docs/schematypes.html
 const BicycleSchema = new mongoose.Schema({
@@ -82,7 +82,7 @@ const RidesSchema = new mongoose.Schema({
     },
     ridebicycle: {
       type: String,
-      required: false,
+      required: true,
     },
     ridespeed: {
       type: Number,
