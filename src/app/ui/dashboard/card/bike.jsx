@@ -64,7 +64,7 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
         </div>
         <div className={styles.texts}>
             <div className={styles.gauge}>
-                <SimpleGauge value={value}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
+                <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
             </div>    
             <span className={styles.remaining}>Lifespan: {bikeLifespan}km</span>
             </div>
