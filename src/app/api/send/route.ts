@@ -9,7 +9,7 @@ import {fetchEmail} from "../../lib/data"
   // I'm using typescript instead of jsx because the online solutions and official documentations show how its done through typescript.
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export function GET() {
+export function GET(): Promise<Response> {
   return new Promise(async (resolve, reject) => {
     try {
       const users = await fetchEmail();
