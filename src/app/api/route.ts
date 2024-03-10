@@ -1,6 +1,6 @@
 import { NextResponse} from 'next/server';
 import { Resend } from 'resend';
-import {fetchEmail} from "../../lib/data"
+import {fetchEmail} from "../lib/data"
 
 // Used guide from https://youtu.be/UqQxfpTQBaE
 // Connecting to Resend API
