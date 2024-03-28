@@ -6,7 +6,6 @@ import { BsSignStopFill } from "react-icons/bs";
 import { IoBicycleOutline } from "react-icons/io5";
 import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
-import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateDrivetrainHealth } from '../../../lib/actions';
 import {updateExperiance} from "../../../lib/actions";
@@ -14,6 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Drivetrain = ({ drivetrainhealth, drivetrainLifespan }) => {
     const [value, setValue] = useState(drivetrainhealth); 
+    const [isVisible, setIsVisible] = useState(false);
 
     const onReset = async () => {
         try {
@@ -42,27 +42,38 @@ const Drivetrain = ({ drivetrainhealth, drivetrainLifespan }) => {
     };
 
     return (
-    <div className={styles.container}>
-        <div className={styles.titleContainer}>
-            <LuCog size={20}/>
-            <span className={styles.title}>Drivetrain</span>
-        </div>
-        <div className={styles.informationContainer}>
-            {/*Text is in reference to: https://www.bikeperfect.com/features/the-importance-of-drivetrain-maintenance */}
-             <Tooltip text="Drivetrain maintenance can boost your riding performance and keep your cycling on budget. You may need to take care of your drivetrain more often depending on your disipline. For instance, mountain and gravel biking will require more care due to the more adverse riding conditions. Drivetrain care mostly involves degreasing, cleaning and relubing the chain">
+        <div className={styles.container}>
+            <div className={styles.titleContainer}>
+                <LuCog size={20}/>
+                <span className={styles.title}>Drivetrain</span>
+            </div>
+            <div 
+                className={styles.tooltipContainer}
+                onMouseEnter={() => setIsVisible(true)}
+                onMouseLeave={() => setIsVisible(false)}
+            >
                 <div className="tooltip-icon">
                     <IoMdInformationCircleOutline size={20} />
                 </div>
-            </Tooltip>
+                {isVisible && (
+                    <div className="tooltip">
+                        <span>Drivetrain maintenance can boost your riding performance and keep your cycling on budget. You may need to take care of your drivetrain more often depending on your disipline. <br/> <br/>Mountain and gravel bikes will require more care due to the more adverse riding conditions. Drivetrain care mostly involve degreasing, cleaning and relubing the chain. <br></br><br></br>  Tools used: <ul>- Degreaser</ul><ul>- Microfiber Cloth</ul><ul>- Chain lube</ul></span>
+                        <span></span>
+                    </div>
+                )}
+            </div>
+            {!isVisible && (
+                <>
+                    <div className={styles.texts}>
+                        <div className={styles.gauge}>
+                            <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
+                        </div>    
+                        <span className={styles.remaining}>Lifespan: {drivetrainLifespan}km</span>
+                    </div>
+                    <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
+                </>
+            )}
         </div>
-        <div className={styles.texts}>
-            <div className={styles.gauge}>
-                <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
-            </div>    
-            <span className={styles.remaining}>Lifespan: {drivetrainLifespan}km</span>
-        </div>
-        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
-    </div>
     )
 }
 

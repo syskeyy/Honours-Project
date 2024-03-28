@@ -6,7 +6,6 @@ import { BsSignStopFill } from "react-icons/bs";
 import { IoBicycleOutline } from "react-icons/io5";
 import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
-import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateBikeHealth } from "../../../lib/actions";
 import {updateExperiance} from "../../../lib/actions";
@@ -19,7 +18,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 // Use states references from https://legacy.reactjs.org/docs/hooks-state.html
 const Bike = ({ bikehealth, bikeLifespan }) => {
+    // Setting state variables
     const [value, setValue] = useState(bikehealth); 
+    const [isVisible, setIsVisible] = useState(false);
 
     const onReset = async () => {
         try {
@@ -47,28 +48,39 @@ const Bike = ({ bikehealth, bikeLifespan }) => {
             return "#02a141"; 
         }
     };
-
+    // This bit will conditionally render depending if user is hovering over the tooltip icon. Otherwise the gauge will be displayed
     return (
     <div className={styles.container}>
         <div className={styles.titleContainer}>
             <IoIosBicycle  size={20}/>
             <span className={styles.title}>Bike</span>
         </div>
-        <div className={styles.informationContainer}>
-            {/*Text is in reference to: https://www.rei.com/learn/expert-advice/how-to-clean-a-bike.html */}
-             <Tooltip text="Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. ">
-                <div className={styles.TooltipIcon}>
-                    <IoMdInformationCircleOutline size={20}/>
-                </div>
-            </Tooltip>
-        </div>
-        <div className={styles.texts}>
-            <div className={styles.gauge}>
-                <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
-            </div>    
-            <span className={styles.remaining}>Lifespan: {bikeLifespan}km</span>
+        <div 
+            className={styles.informationContainer}
+            onMouseEnter={() => setIsVisible(true)}
+            onMouseLeave={() => setIsVisible(false)}
+        >
+            <div className="tooltip-icon">
+                <IoMdInformationCircleOutline size={20} />
             </div>
-        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
+            {isVisible && (
+                <div className="tooltip">
+                    Your bike is a collection of moving parts. When exposed to mud, grime and debris, these parts begin to deteriorate. <br></br> <br></br>If you spend a lot of time riding in wet, muddy conditions, or if you ride hard, fast and often, plan to clean your bike more frequently. <br></br><br></br>Tools used: <ul>- Degreaser</ul><ul>- Sponge</ul><ul>- Brush</ul>
+                </div>
+            )}
+        </div>
+        {!isVisible && (
+            <>
+                {/* the gauge which displays the current health of the bike */}
+                <div className={styles.texts}>
+                    <div className={styles.gauge}>
+                        <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
+                    </div>    
+                    <span className={styles.remaining}>Lifespan: {bikeLifespan}km</span>
+                </div>
+                <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
+            </>
+        )}
     </div>
     )
 }

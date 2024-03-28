@@ -8,7 +8,7 @@ import { useSession, signOut } from 'next-auth/react'
 // Icons for the menu items
 import {
     MdPedalBike,
-    MdBadge,
+    MdStarOutline,
     MdRoute,
     MdSpaceDashboard,
     MdSettings,
@@ -35,7 +35,7 @@ const menuItems = [
             },
             {title: "Achievements",
             path: "/dashboard/achievements",
-            icon: <MdBadge />
+            icon: <MdStarOutline />
             },
 
             {title: "Profile",

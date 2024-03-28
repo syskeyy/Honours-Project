@@ -4,9 +4,9 @@ import { IoMdStopwatch  } from "react-icons/io";
 import { MdOutlineTireRepair } from "react-icons/md";
 import { BsSignStopFill } from "react-icons/bs";
 import { IoBicycleOutline } from "react-icons/io5";
+import { FiExternalLink } from "react-icons/fi";
 import { SimpleGauge } from "react-gauges";
 import React, { useState } from 'react';
-import {Tooltip} from "./Tooltip";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { UpdateBrakeHealth } from "../../../lib/actions";
 import {updateExperiance} from "../../../lib/actions";
@@ -14,6 +14,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Brakes = ({ brakehealth, brakeLifespan}) => {
     const [value, setValue] = useState(brakehealth); 
+    const [isVisible, setIsVisible] = useState(false);
 
     const onReset = async () => {
         try {
@@ -43,26 +44,36 @@ const Brakes = ({ brakehealth, brakeLifespan}) => {
 
 
     return (
-    <div className={styles.container}>
+        <div className={styles.container}>
         <div className={styles.titleContainer}>
             <IoMdStopwatch  size={20}/>
             <span className={styles.title}>Brakes</span>
         </div>
-        <div className={styles.informationContainer}>
-            {/*Text is in reference to: https://www.rei.com/learn/expert-advice/brakes.html */}
-            <Tooltip text="Your brakes are without a doubt one of the most important parts of your bike. They must be clean, in good condition and properly adjusted before every ride.Over time and after lots of miles on the trail or road, disc brakes lose some of their effectiveness. This leads to longer response times, less efficient braking and less bike control.">
-                <div className="tooltip-icon">
-                    <IoMdInformationCircleOutline size={20} />
+        <div 
+            className={styles.informationContainer}
+            onMouseEnter={() => setIsVisible(true)}
+            onMouseLeave={() => setIsVisible(false)}
+        >
+            <div className="tooltip-icon">
+                <IoMdInformationCircleOutline size={20} />
+            </div>
+            {isVisible && (
+                <div className="tooltip">
+                    Your brakes are without a doubt one of the most important parts of your bike. They must be clean, in good condition and properly adjusted before every ride. <br></br><br></br>Over time and after lots of miles on the trail or road, disc brakes lose some of their effectiveness. This leads to longer response times, less efficient braking and less bike control. <br></br><br></br><a href="https://www.youtube.com/watch?v=Xqw0SaZl-jo&list=PLGCTGpvdT04TW0Qi4wpGxYB2TuzJok9l5"><b>Click here for more information on brake servicing</b></a> <FiExternalLink/>
                 </div>
-            </Tooltip>
+            )}
         </div>
-        <div className={styles.texts}>
-            <div className={styles.gauge}>
-                <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
-            </div>    
-            <span className={styles.remaining}>Lifespan: {brakeLifespan}km </span>
-        </div>
-        <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
+        {!isVisible && (
+            <>
+                <div className={styles.texts}>
+                    <div className={styles.gauge}>
+                        <SimpleGauge value={parseFloat(value.toFixed(2))}labelFontWeight="normal" barWidth={15} isTotal={true} barColor={getLabelColor(value)} labelColor="#ffffff" labelFontFamily="Poppins" labelFontSize="1.7rem" indicatorVisible={false}/>        
+                    </div>    
+                    <span className={styles.remaining}>Lifespan: {brakeLifespan}km </span>
+                </div>
+                <button className={styles.cardButton} onClick={onReset}>Reset Service</button>
+            </>
+        )}
     </div>
     )
 }

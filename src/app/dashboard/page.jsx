@@ -18,7 +18,7 @@ import { fetchLifespan } from '../lib/data.js';
 
 const Dashboard = async(onReset) => {
   const bicycles = await fetchAllBicycle();
-  //Willreturn only the first bicycle in the array that the user is associated with
+  //Will return only the first bicycle in the array that the user is associated with
   const bike = bicycles[0];
 
   // Basic validation, upon a new user sign up it will display a blank component that instructs the user to add a bicycle
