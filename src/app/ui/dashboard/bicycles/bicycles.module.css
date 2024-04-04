@@ -26,6 +26,10 @@
 
 }
 
+.input{
+    border: 2px solid rgba(255, 255, 255, 0.121);
+}
+
 .addBicycleButton:hover{
     background-color: var(--green);
     color: white;

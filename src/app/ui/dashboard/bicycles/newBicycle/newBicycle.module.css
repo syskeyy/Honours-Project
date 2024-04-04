@@ -24,6 +24,11 @@
 
 .form input, .form select, .form label{
     width: 100%;
+    
+}
+
+.form input, .form select, .form textarea, .form label textarea{
+    border: 2px solid rgba(255, 255, 255, 0.121);
 }
 .form textarea{
     width: 100%;
