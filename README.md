@@ -1,9 +1,10 @@
 ChainSafe: Bicycle Maintenance Tracker
+Website: https://www.chainsafe.pro/
 
 Reference list:
 
 Tutorials & Guides
-- https://youtu.be/cBg6xA5C60s : Learning nextJs and react tutorial. This was my most used reference and sets up some of the groundworks of the website. Including the setup of the website structure and layout, as well as setting up some of the basics such as the js to connect to mongodb, ride and bicycle layout, page numbers, search box, as well as the navigation bar using pathname. 
+- https://youtu.be/cBg6xA5C60s : Learning nextJs and React tutorial. This was my most used reference and sets up some of the groundworks of the website. Including the setup of the website structure and layout, as well as setting up some of the basics such as the js to connect to mongodb, ride and bicycle layout, page numbers, search box, as well as the navigation bar using pathname. 
 - https://next-auth.js.org/configuration/nextjs : User session and middleware
 - https://youtu.be/bkUmN9TH_hQ, https://next-auth.js.org/providers/google : Google authentication
 - https://www.npmjs.com/package/react-gauge-chart : React Gauge - Followed documentation shown
