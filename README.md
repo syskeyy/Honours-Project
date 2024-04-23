@@ -6,16 +6,11 @@ Welcome to ChainSafe, your go-to solution for keeping track of your bicycle's ma
 
 Explore ChainSafe on our website.
 
-## Figma Wireframes
+## Design documents
 
 - [High Fidelity Wireframe](https://www.figma.com/file/6GFsK3cSIvX7G5vMoE61mh/Bicycle-Maintanence-Tracker---High-Fidelity-Wireframe?type=design&mode=design&t=34LczQpSB33aSDES-1)
 - [Low Fidelity Wireframe](https://www.figma.com/file/y9Y6vNRRikCtkmwol7zKcE/Bicycle-Maintanence-Tracker---Low-Fidelity-Wireframe?type=design&node-id=0%3A1&mode=design&t=34LczQpSB33aSDES-1)
-
-## [User Persona](https://www.figma.com/file/wAK788jRwNpTXA383AxIrk/User-Persona---Bicycle-Maintenence-App?type=design&mode=design&t=34LczQpSB33aSDES-1)
-
-Understand our user base better with our detailed user persona.
-
-## Reference List
+- [User Persona](https://www.figma.com/file/wAK788jRwNpTXA383AxIrk/User-Persona---Bicycle-Maintenence-App?type=design&mode=design&t=34LczQpSB33aSDES-1)
 
 ### Tutorials & Guides
 
