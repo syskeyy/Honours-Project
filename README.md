@@ -1,5 +1,5 @@
 # ChainSafe: Bicycle Maintenance Tracker
-<img src="https://www.chainsafe.pro/logo.png" alt="ChainSafe Logo" width="200">
+
 Welcome to ChainSafe, a bicycle maintainence tracker designed to help users maintain their bicycle components! Created by David Gulijev.
 
 ## [🌐 Website](https://www.chainsafe.pro/)
