@@ -1,18 +1,18 @@
 # ChainSafe: Bicycle Maintenance Tracker
 
-Welcome to ChainSafe, your go-to solution for keeping track of your bicycle's maintenance needs. This tracker helps you stay on top of essential tasks, ensuring your bike is always in top condition for your rides.
+Welcome to ChainSafe, a bicycle maintainence tracker designed to help users maintain their bicycle components!
 
 ## [🌐 Website](https://www.chainsafe.pro/)
 
-Explore ChainSafe on our website.
+If the hyperlink doesn't work try visit: https://www.chainsafe.pro/
 
-## Design documents
+## 🔨 Design documents
 
 - [High Fidelity Wireframe](https://www.figma.com/file/6GFsK3cSIvX7G5vMoE61mh/Bicycle-Maintanence-Tracker---High-Fidelity-Wireframe?type=design&mode=design&t=34LczQpSB33aSDES-1)
 - [Low Fidelity Wireframe](https://www.figma.com/file/y9Y6vNRRikCtkmwol7zKcE/Bicycle-Maintanence-Tracker---Low-Fidelity-Wireframe?type=design&node-id=0%3A1&mode=design&t=34LczQpSB33aSDES-1)
 - [User Persona](https://www.figma.com/file/wAK788jRwNpTXA383AxIrk/User-Persona---Bicycle-Maintenence-App?type=design&mode=design&t=34LczQpSB33aSDES-1)
 
-### Tutorials & Guides
+### 📙 Tutorials & Guides
 
 - [Learning nextJs and React tutorial](https://youtu.be/cBg6xA5C60s): Sets up website structure, layout, and MongoDB connection.
 - [User session and middleware](https://next-auth.js.org/configuration/nextjs)
@@ -34,7 +34,7 @@ Explore ChainSafe on our website.
 - [Using map method to return user data](https://forum.freecodecamp.org/t/how-to-get-username-from-userid-using-map-function/516256)
 - [Ignoring paths using middleware in Next.js](https://next-auth.js.org/configuration/nextjs)
 
-### Libraries
+### 👨‍💻 Libraries
 
 - [Toastify Library](https://www.npmjs.com/package/react-toastify)
 - [React Icons](https://react-icons.github.io/react-icons/)
@@ -42,7 +42,7 @@ Explore ChainSafe on our website.
 - [Recharts](https://www.npmjs.com/package/recharts), [Recharts examples](https://recharts.org/en-US/examples)
 - [Resend](https://resend.com/docs/send-with-nextjs)
 
-### Images
+### 🖼️ Images
 
 - [Rides page background](https://www.pexels.com/photo/gray-concrete-road-between-green-grass-field-and-mountains-9728161/)
 - [Login page background](https://unsplash.com/photos/person-cycling-on-road-distance-with-mountain-during-daytime-VfUN94cUy4o)
@@ -50,7 +50,7 @@ Explore ChainSafe on our website.
 - [Settings page background](https://www.pexels.com/photo/close-up-of-removing-a-tire-from-a-rim-14918545/)
 - [Chain icon](https://www.flaticon.com/free-icon/chain_8313445?related_id=8313445&origin=search)
 
-### Bicycle Component Text
+### 🚲 Bicycle Component Text
 
 - [Drivetrain maintenance](https://www.bikeperfect.com/features/the-importance-of-drivetrain-maintenance)
 - [Bicycle tire care](https://www.rodalink.com/sg/blog/how-to-take-a-good-care-of-your-bicycle-tire)
